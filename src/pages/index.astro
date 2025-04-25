@@ -1,11 +1,220 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const technologies = [
+	// Frontend
+	{ name: "React", category: "frontend" },
+	{ name: "TypeScript", category: "frontend" },
+	{ name: "JavaScript", category: "frontend" },
+	{ name: "Tailwind CSS", category: "frontend" },
+	{ name: "HTML/CSS", category: "frontend" },
+	{ name: "Astro", category: "tools" },
+
+	// Backend
+	{ name: "Go", category: "backend" },
+	{ name: "PostgreSQL", category: "backend" },
+	{ name: "Next.js", category: "backend" },
+
+	// Tools
+	{ name: "Git", category: "tools" },
+	{ name: "Docker", category: "tools" },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Lukáš Netolický | Computer Enthusiast"
+	description="High school student who loves coding and tech stuff."
+>
+	<section class="container">
+		<div class="hero">
+			<h1>Hey! I'm <span class="highlight">Lukáš</span> 👋</h1>
+			<p class="hero-subtitle">Student Developer</p>
+			<p class="hero-description">
+				I'm a 16-year-old high school student who loves coding and tech stuff. I
+				enjoy learning new things and building projects that challenge my
+				skills. I'm always looking for new opportunities to grow and improve my
+				skills. Whether it's through school projects or personal endeavors, I'm
+				committed to pushing myself to learn and grow!
+			</p>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class="about">
+		<div class="container">
+			<h2>About Me</h2>
+			<div class="about-content">
+				<p>
+					I'm a high school student who got pretty obsessed with coding 💻. I
+					love figuring out how stuff works and learning when things break along
+					the way. Playing with different technologies, libraries, and
+					programming languages is something I really enjoy!
+				</p>
+				<p>
+					My projects range from web apps to all sorts of coding experiments 🚀.
+					I'm all about hands-on learning experience and enjoy jumping into
+					different challenges that level up my skills and help me solve cool
+					problems ✨.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technologies Section -->
+	<section class="container technologies">
+		<h2>Technologies I Work With</h2>
+		<div class="tech-categories">
+			<div class="tech-category">
+				<h3>Frontend</h3>
+				<ul class="tech-list">
+					{
+						technologies
+							.filter((tech) => tech.category === "frontend")
+							.map((tech) => <li class="tech-item">{tech.name}</li>)
+					}
+				</ul>
+			</div>
+			<div class="tech-category">
+				<h3>Backend</h3>
+				<ul class="tech-list">
+					{
+						technologies
+							.filter((tech) => tech.category === "backend")
+							.map((tech) => <li class="tech-item">{tech.name}</li>)
+					}
+				</ul>
+			</div>
+			<div class="tech-category">
+				<h3>Tools & Others</h3>
+				<ul class="tech-list">
+					{
+						technologies
+							.filter((tech) => tech.category === "tools")
+							.map((tech) => <li class="tech-item">{tech.name}</li>)
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	/* Hero Section */
+	.hero {
+		padding: var(--space-3xl) 0;
+		background-color: var(--color-bg);
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: var(--font-5xl);
+		margin-bottom: var(--space-md);
+	}
+
+	.highlight {
+		color: var(--color-primary);
+	}
+
+	.hero-subtitle {
+		font-size: var(--font-2xl);
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-lg);
+		font-weight: var(--font-medium);
+	}
+
+	.hero-description {
+		font-size: var(--font-lg);
+		margin-bottom: var(--space-xl);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.6;
+	}
+
+	/* About Section */
+	.about {
+		padding: var(--space-3xl) 0;
+		background-color: var(--color-bg-muted);
+	}
+
+	.about h2 {
+		text-align: center;
+		margin-bottom: var(--space-xl);
+	}
+
+	.about-content {
+		max-width: 810px;
+		margin: 0 auto;
+	}
+
+	.about-content p {
+		margin-bottom: var(--space-md);
+		line-height: 1.6;
+	}
+
+	/* Technologies Section */
+	.technologies {
+		padding: var(--space-3xl) 0;
+	}
+
+	.technologies h2 {
+		text-align: center;
+		margin-bottom: var(--space-xl);
+	}
+
+	.tech-categories {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+		gap: var(--space-xl);
+		margin: 0 auto;
+	}
+
+	.tech-category h3 {
+		margin-bottom: var(--space-md);
+		color: var(--color-primary);
+		text-align: center;
+	}
+
+	.tech-list {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		justify-content: center;
+	}
+
+	.tech-item {
+		background-color: var(--color-bg-muted);
+		padding: var(--space-xs) var(--space-md);
+		border-radius: 20px;
+		font-size: var(--font-sm);
+		transition: all 0.2s ease;
+	}
+
+	.tech-item:hover {
+		background-color: var(--color-primary-muted);
+		transform: translateY(-3px);
+	}
+
+	/* Responsive Adjustments */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: var(--font-4xl);
+		}
+
+		.hero-subtitle {
+			font-size: var(--font-xl);
+		}
+
+		.hero-buttons {
+			flex-direction: column;
+			gap: var(--space-sm);
+		}
+
+		.tech-categories {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
