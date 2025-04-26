@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+---
+
+<Layout
+  title="About Me | Lukáš Netolický"
+  description="Learn more about my background, interests, and journey as a student developer."
+>
+  <div class="container">
+    <section class="about-header">
+      <h1>About <span class="highlight">Me</span></h1>
+      <p class="subtitle">My coding journey</p>
+    </section>
+
+    <section class="about-content">
+      <div class="section">
+        <h2>Who Am I?</h2>
+        <p>
+          Hey! I'm a 16-year-old student at <a
+            href="https://www.delta-skola.cz/"
+            target="_blank"
+            rel="noopener noreferrer">DELTA IT High School</a
+          > in the Czech Republic, where I'm learning all sorts of tech skills. When
+          I'm not in class, I work on coding projects and learn new technologies
+          that help me build useful solutions.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>How I Got Started</h2>
+        <p>
+          I got into coding back in 2020 with some small projects that
+          interested me. What started as just playing around quickly turned into
+          a full-blown passion as I discovered I could create software that I
+          actually needed but couldn't find anywhere else. The feeling of
+          building something that solves a real problem is what keeps me going!
+        </p>
+        <p>
+          These days, I mostly build web apps. I like to create solutions for
+          problems I face - if I need something that doesn't exist yet, I'll
+          just build it myself. This hands-on approach is how I learn best,
+          picking up different technologies, languages and frameworks along the
+          way as needed to turn my ideas into reality. ✨
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Technologies I Use</h3>
+            <div class="tech-group">
+              <h4>Frontend</h4>
+              <ul>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>HTML/CSS</li>
+                <li>Tailwind CSS</li>
+                <li>Astro</li>
+                <li>SASS/SCSS</li>
+              </ul>
+            </div>
+            <div class="tech-group">
+              <h4>Backend</h4>
+              <ul>
+                <li>Go</li>
+                <li>Node.js</li>
+                <li>Next.js</li>
+                <li>RESTful APIs</li>
+              </ul>
+            </div>
+            <div class="tech-group">
+              <h4>Databases</h4>
+              <ul>
+                <li>PostgreSQL</li>
+                <li>SQLite</li>
+                <li>GORM</li>
+              </ul>
+            </div>
+            <div class="tech-group">
+              <h4>Tools & Deployment</h4>
+              <ul>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Docker</li>
+                <li>Linux</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Languages I Speak</h3>
+            <ul>
+              <li>Czech (Native)</li>
+              <li>English</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>What's Next</h2>
+        <p>
+          I'm always looking to learn new things and tackle interesting
+          challenges. Excited to keep growing my skills and exploring different
+          areas of coding to see where it all takes me!
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-header {
+    text-align: center;
+    padding: var(--space-3xl) 0 var(--space-xl);
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--font-lg);
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: var(--space-3xl);
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .skill-category h3 {
+    font-size: var(--font-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .tech-group h4 {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-md);
+  }
+
+  .tech-group ul,
+  .skill-category ul {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .tech-group ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: var(--space-xs);
+  }
+
+  @media (max-width: 768px) {
+    .skills-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

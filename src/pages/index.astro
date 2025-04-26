@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
 
 const technologies = [
 	// Frontend
@@ -8,7 +9,7 @@ const technologies = [
 	{ name: "JavaScript", category: "frontend" },
 	{ name: "Tailwind CSS", category: "frontend" },
 	{ name: "HTML/CSS", category: "frontend" },
-	{ name: "Astro", category: "tools" },
+	{ name: "Astro", category: "frontend" },
 
 	// Backend
 	{ name: "Go", category: "backend" },
@@ -36,6 +37,9 @@ const technologies = [
 				skills. Whether it's through school projects or personal endeavors, I'm
 				committed to pushing myself to learn and grow!
 			</p>
+			<div class="hero-buttons">
+				<Link href="/about">More About Me</Link>
+			</div>
 		</div>
 	</section>
 
@@ -113,10 +117,6 @@ const technologies = [
 		margin-bottom: var(--space-md);
 	}
 
-	.highlight {
-		color: var(--color-primary);
-	}
-
 	.hero-subtitle {
 		font-size: var(--font-2xl);
 		color: var(--color-text-muted);
@@ -131,6 +131,12 @@ const technologies = [
 		margin-left: auto;
 		margin-right: auto;
 		line-height: 1.6;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: var(--space-md);
+		justify-content: center;
 	}
 
 	/* About Section */

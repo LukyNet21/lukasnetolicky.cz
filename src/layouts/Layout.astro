@@ -21,6 +21,7 @@ const { title = "Lukáš Netolický", description } = Astro.props as Props;
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
 	<body>
 		<Header />
