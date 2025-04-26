@@ -34,7 +34,6 @@ npm run build
 ```
 
 ## 📄 License
-
-[MIT](LICENSE)
+[AGPL-3.0](LICENSE)
 
 Created by Lukáš Netolický

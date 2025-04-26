@@ -1,0 +1,99 @@
+---
+interface Props {
+  headings: {
+    depth: number;
+    slug: string;
+    text: string;
+  }[];
+}
+
+const { headings } = Astro.props;
+
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth >= 1 && heading.depth <= 4,
+);
+---
+
+<aside class="toc-container">
+  <nav class="toc">
+    <h2 class="toc-header">Table of Contents</h2>
+    <ul class="toc-list">
+      {
+        filteredHeadings.map((heading) => (
+          <li class={`toc-item depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`} class="toc-link">
+              {heading.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .toc-container {
+    position: sticky;
+    top: 6rem;
+    padding: var(--space-md);
+    background-color: var(--color-bg-alt);
+    border-radius: 8px;
+    margin-bottom: var(--space-lg);
+    align-self: start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .toc-header {
+    font-size: var(--font-md);
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-item {
+    margin-bottom: var(--space-xs);
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.2s ease;
+    display: block;
+    padding: var(--space-xs) 0;
+  }
+
+  .toc-link:hover {
+    color: var(--color-primary);
+  }
+
+  .depth-1 {
+    font-weight: var(--font-bold);
+  }
+
+  .depth-2 {
+    margin-left: var(--space-md);
+  }
+
+  .depth-3 {
+    margin-left: calc(var(--space-md) * 2);
+    font-size: 0.9em;
+  }
+  
+  .depth-4 {
+    margin-left: calc(var(--space-md) * 3);
+    font-size: 0.85em;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 1200px) {
+    .toc-container {
+      position: relative;
+      top: 0;
+    }
+  }
+</style>

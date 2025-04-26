@@ -1,0 +1,53 @@
+.technology {
+  background-color: var(--color-bg-muted);
+  color: var(--color-primary);
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: var(--font-xs);
+  transition: transform 0.2s ease;
+}
+
+.technology:hover {
+  transform: translateY(-2px);
+}
+
+/* Specific technology colors */
+.technology.html {
+  background-color: rgba(227, 79, 38, 0.15);
+  color: #e34f26;
+}
+
+.technology.css {
+  background-color: rgba(21, 114, 182, 0.15);
+  color: #1572b6;
+}
+
+.technology.javascript {
+  background-color: rgba(240, 219, 79, 0.2);
+  color: #b09500;
+}
+
+.technology.typescript {
+  background-color: rgba(45, 121, 199, 0.15);
+  color: #2d79c7;
+}
+
+.technology.astro {
+  background-color: rgba(255, 93, 1, 0.15);
+  color: #ff5d01;
+}
+
+.technology.go {
+  background-color: rgba(0, 173, 216, 0.15);
+  color: #00add8;
+}
+
+.technology.react {
+  background-color: rgba(97, 218, 251, 0.15);
+  color: #61dafb;
+}
+
+.technology.python {
+  background-color: rgba(53, 114, 165, 0.15);
+  color: #3572a5;
+}

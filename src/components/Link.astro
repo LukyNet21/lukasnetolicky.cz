@@ -3,6 +3,7 @@ interface Props {
   href: string;
   type?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
+  color?: `primary` | `secondary`;
   target?: string;
   class?: string;
 }
@@ -11,6 +12,7 @@ const {
   href, 
   type = 'secondary', 
   size = 'medium', 
+  color = 'primary',
   target, 
   class: className = ''
 } = Astro.props;
@@ -21,6 +23,7 @@ const {
   target={target}
   class:list={[
     'button',
+    `button-${color}`,
     type,
     size,
     className
@@ -36,19 +39,39 @@ const {
     font-weight: var(--font-medium);
     text-decoration: none;
     transition: all 0.2s ease;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
     background: transparent;
   }
 
-  .primary {
+  /* Colors */
+  .button-primary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .button-primary.primary {
     background-color: var(--color-primary);
     color: white;
   }
 
+  .button-secondary {
+    border: 2px solid var(--color-secondary);
+    color: var(--color-secondary);
+  }
+
+  .button-secondary.primary {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Sizes */
   .small {
     font-size: var(--font-sm);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .medium {
@@ -60,10 +83,4 @@ const {
     font-size: var(--font-lg);
     padding: var(--space-md) var(--space-xl);
   }
-
-  .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
 </style>

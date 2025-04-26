@@ -3,6 +3,9 @@
   --color-primary: #4a6cf7;
   --color-primary-muted: #6e8df8;
 
+  --color-secondary: #f97316;
+  --color-secondary-muted: #fb923c;
+
   --color-text: #111827;
   --color-text-muted: #374151;
 
@@ -122,9 +125,18 @@ a:focus {
   margin-bottom: var(--space-sm);
 }
 
-
 .highlight {
   color: var(--color-primary);
+}
+
+.page-header {
+  text-align: center;
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-lg);
 }
 
 @media (max-width: 768px) {

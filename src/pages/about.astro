@@ -8,7 +8,7 @@ import Link from "../components/Link.astro";
   description="Learn more about my background, interests, and journey as a student developer."
 >
   <div class="container">
-    <section class="about-header">
+    <section class="page-header">
       <h1>About <span class="highlight">Me</span></h1>
       <p class="subtitle">My coding journey</p>
     </section>
@@ -107,22 +107,15 @@ import Link from "../components/Link.astro";
           challenges. Excited to keep growing my skills and exploring different
           areas of coding to see where it all takes me!
         </p>
+        <div class="cta-container">
+          <Link href="/projects" type="primary">See What I've Built</Link>
+        </div>
       </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .about-header {
-    text-align: center;
-    padding: var(--space-3xl) 0 var(--space-xl);
-  }
-
-  .subtitle {
-    color: var(--color-text-muted);
-    font-size: var(--font-lg);
-  }
-
   .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -156,6 +149,11 @@ import Link from "../components/Link.astro";
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: var(--space-xs);
+  }
+
+  .cta-container {
+    margin-top: var(--space-xl);
+    text-align: center;
   }
 
   @media (max-width: 768px) {

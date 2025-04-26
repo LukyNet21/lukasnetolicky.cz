@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects', ({ data }) => {
+  return data.published && (
+    !data.published || 
+    new Date(data.published) <= new Date()
+  );
+});
+
+const sortedProjects = projects.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  
+  return new Date(b.data.published).getTime() - new Date(a.data.published).getTime();
+});
+---
+
+<Layout
+  title="Projects | Lukáš Netolický"
+  description="Explore my projects and coding journey."
+>
+  <div class="container">
+    <section class="page-header">
+      <h1>My <span class="highlight">Projects</span></h1>
+      <p class="subtitle">Here's what I've been working on</p>
+    </section>
+
+    <section class="projects-grid">
+      {sortedProjects.length !== 0 && (
+        <div class="projects-container">
+          {sortedProjects.map((project) => (
+            <ProjectCard
+              data={project.data}
+              id={project.id}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  @media (max-width: 768px) {
+    .projects-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
