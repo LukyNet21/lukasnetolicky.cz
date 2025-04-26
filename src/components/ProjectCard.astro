@@ -53,7 +53,7 @@ function normalizeTech(tech: string): string {
         ))
       }
     </div>
-    <p>{description}</p>
+    <p>{description.length > 100 ? description.substring(0, 150) + '...' : description}</p>
     <div class="project-links">
       <Link href={`/projects/${id}`} size="small" type="primary">
         View Details
