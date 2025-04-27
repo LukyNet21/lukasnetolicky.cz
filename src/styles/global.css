@@ -13,24 +13,40 @@
   --color-bg-muted: #f3f4f6;
 
   /* Spacing System - Used for margins, padding, and positioning */
-  --space-xs: 0.25rem; /* 4px */
-  --space-sm: 0.5rem; /* 8px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
+  /* 4px */
+  --space-xs: 0.25rem;
+  /* 8px */
+  --space-sm: 0.5rem;
+  /* 16px */
+  --space-md: 1rem;
+  /* 24px */
+  --space-lg: 1.5rem;
+  /* 32px */
+  --space-xl: 2rem;
+  /* 48px */
+  --space-2xl: 3rem;
+  /* 64px */
+  --space-3xl: 4rem;
 
   /* Typography Scale - Using the same scale as spacing for consistency */
-  --font-xs: 0.75rem; /* 12px */
-  --font-sm: 0.875rem; /* 14px */
-  --font-md: 1rem; /* 16px  */
-  --font-lg: 1.125rem; /* 18px */
-  --font-xl: 1.25rem; /* 20px */
-  --font-2xl: 1.5rem; /* 24px */
-  --font-3xl: 1.875rem; /* 30px */
-  --font-4xl: 2.25rem; /* 36px */
-  --font-5xl: 3rem; /* 48px */
+  /* 12px */
+  --font-xs: 0.75rem;
+  /* 14px */
+  --font-sm: 0.875rem;
+  /* 16px  */
+  --font-md: 1rem;
+  /* 18px */
+  --font-lg: 1.125rem;
+  /* 20px */
+  --font-xl: 1.25rem;
+  /* 24px */
+  --font-2xl: 1.5rem;
+  /* 30px */
+  --font-3xl: 1.875rem;
+  /* 36px */
+  --font-4xl: 2.25rem;
+  /* 48px */
+  --font-5xl: 3rem;
 
   /* Font Weights */
   --font-thin: 100;
@@ -44,8 +60,11 @@
   --font-black: 900;
 }
 
-/* Apply a reset to ensure consistency */
-*, *::before, *::after, html, body {
+*,
+*::before,
+*::after,
+html,
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -99,7 +118,8 @@ a {
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--color-primary-muted);
   text-decoration: underline;
 }

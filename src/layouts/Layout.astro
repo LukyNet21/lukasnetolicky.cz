@@ -2,18 +2,20 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title?: string;
 	description?: string;
 }
 
+
 const { title = "Lukáš Netolický", description } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
+  <head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,7 +24,8 @@ const { title = "Lukáš Netolický", description } = Astro.props as Props;
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-	</head>
+    <ClientRouter />
+  </head>
 	<body>
 		<Header />
 		<main>

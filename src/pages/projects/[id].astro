@@ -6,6 +6,7 @@ import Link from "../../components/Link.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Date from "../../components/Date.astro";
 import { Image } from "astro:assets";
+import { normalizeTech } from "../../utils/usils";
 
 export async function getStaticPaths() {
   const posts = await getCollection("projects");
@@ -22,23 +23,25 @@ const { Content, headings } = await render(post);
 <Layout title={post.data.title} description={post.data.description}>
   <div class="container">
     <div class="project-header">
-      <h1>{post.data.title}</h1>
-
+      <h1 transition:name={`project-title-${post.id}`}>{post.data.title}</h1>
       {
         post.data.published && (
-          <div class="project-date">
-            <span>
-              Published: <Date date={post.data.published} />
-            </span>
+          <div
+            class="project-date"
+            transition:name={`project-published-${post.id}`}
+          >
+            Published: <Date date={post.data.published} />
           </div>
         )
       }
-
       {
         post.data.technologies && (
           <div class="project-technologies">
             {post.data.technologies.map((tech) => (
-              <span class={`technology ${tech.toLowerCase().trim()}`}>
+              <span
+                class={`technology ${normalizeTech(tech)}`}
+                transition:name={`project-technology-${post.id}-${normalizeTech(tech)}`}
+              >
                 {tech}
               </span>
             ))}
@@ -46,21 +49,21 @@ const { Content, headings } = await render(post);
         )
       }
     </div>
-
-    {post.data.cover && (
-      <Image
+    
+    <Image
+      transition:name={`project-cover-${post.id}`}
       src={post.data.cover}
-      alt={post.data.coverAlt || `Cover image for ${post.data.title}`}
+      alt={post.data.coverAlt}
       class="project-image"
       loading="lazy"
       format="webp"
       width={1200}
       height={630}
-      quality={50}
+      quality={70}
       decoding="async"
-      />
-    )}
-    <div class="project-links">
+    />
+
+    <div class="project-links" transition:name={`project-links-${post.id}`}>
       {
         post.data.demo && (
           <Link
@@ -73,7 +76,6 @@ const { Content, headings } = await render(post);
           </Link>
         )
       }
-
       {
         post.data.source && (
           <Link
@@ -106,13 +108,9 @@ const { Content, headings } = await render(post);
 
 <style>
   .project-header {
+    padding-top: var(--space-3xl);
     margin-bottom: var(--space-xl);
     text-align: center;
-  }
-
-  .project-header h1 {
-    font-size: var(--font-2xl);
-    margin-bottom: var(--space-md);
   }
 
   .project-date {
@@ -133,7 +131,6 @@ const { Content, headings } = await render(post);
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: var(--space-xl);
   }
 
   .project-links {

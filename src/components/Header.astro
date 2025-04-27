@@ -186,7 +186,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
     const menuToggle = document.querySelector(".mobile-menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
@@ -194,6 +194,13 @@ const currentPath = Astro.url.pathname;
       navLinks?.classList.toggle("show");
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", (!isExpanded).toString());
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menuToggle?.contains(event.target as Node) && !navLinks?.contains(event.target as Node)) {
+        navLinks?.classList.remove("show");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      }
     });
   });
 </script>
