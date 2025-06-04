@@ -157,6 +157,8 @@ a:focus {
 .subtitle {
   color: var(--color-text-muted);
   font-size: var(--font-lg);
+  max-width: 50rem;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {

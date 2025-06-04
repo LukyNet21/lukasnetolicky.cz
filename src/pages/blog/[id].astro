@@ -1,0 +1,197 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/technologies.css";
+import Link from "../../components/Link.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import Date from "../../components/Date.astro";
+import { Image } from "astro:assets";
+import { normalizeTech } from "../../utils/usils";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <div class="container">
+    <div class="post-header">
+      <h1 transition:name={`post-title-${post.id}`}>{post.data.title}</h1>
+      {
+        post.data.published && (
+          <div
+            class="post-date"
+            transition:name={`post-published-${post.id}`}
+          >
+            Published: <Date date={post.data.published} />
+          </div>
+        )
+      }
+      {
+        post.data.technologies && (
+          <div class="post-technologies">
+            {post.data.technologies.map((tech) => (
+              <span
+                class={`technology ${normalizeTech(tech)}`}
+                transition:name={`post-technology-${post.id}-${normalizeTech(tech)}`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+    
+    <Image
+      transition:name={`post-cover-${post.id}`}
+      src={post.data.cover}
+      alt={post.data.coverAlt}
+      class="post-image"
+      loading="lazy"
+      format="webp"
+      width={1200}
+      height={630}
+      quality={70}
+      decoding="async"
+    />
+
+    <div class="post-content-wrapper">
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+
+      <div class="post-content">
+        <Content />
+      </div>
+    </div>
+
+    <div class="back-link">
+      <Link href="/posts" type="primary" size="small" color="primary">
+        ← Back to Blog
+      </Link>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .post-header {
+    padding-top: var(--space-3xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .post-date {
+    color: var(--color-text-muted);
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: var(--space-md) 0;
+    justify-content: center;
+  }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .post-content-wrapper {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0;
+    align-items: start;
+  }
+
+  .post-content {
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .post-content :global(h1),
+  .post-content :global(h2),
+  .post-content :global(h3) {
+    scroll-margin-top: 6rem;
+  }
+
+  .post-content :global(h2) {
+    font-size: var(--font-xl);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .post-content :global(h3) {
+    font-size: var(--font-lg);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  .post-content :global(p) {
+    margin-bottom: var(--space-md);
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+  }
+
+  .post-content :global(li) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-content :global(pre) {
+    background-color: var(--color-bg-code);
+    border-radius: 6px;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: var(--space-md) 0;
+  }
+
+  .back-link {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  @media (max-width: 1200px) {
+    .post-container {
+      padding: var(--space-lg) var(--space-sm);
+    }
+
+    .post-header h1 {
+      font-size: var(--font-xl);
+    }
+
+    .post-content-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .post-links {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+  }
+</style>
