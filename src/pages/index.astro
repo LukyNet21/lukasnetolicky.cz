@@ -3,225 +3,225 @@ import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 
 const technologies = [
-	// Frontend
-	{ name: "React", category: "frontend" },
-	{ name: "TypeScript", category: "frontend" },
-	{ name: "JavaScript", category: "frontend" },
-	{ name: "Tailwind CSS", category: "frontend" },
-	{ name: "HTML/CSS", category: "frontend" },
-	{ name: "Astro", category: "frontend" },
+  // Frontend
+  { name: "React", category: "frontend" },
+  { name: "TypeScript", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "HTML/CSS", category: "frontend" },
+  { name: "Astro", category: "frontend" },
 
-	// Backend
-	{ name: "Go", category: "backend" },
-	{ name: "PostgreSQL", category: "backend" },
-	{ name: "Next.js", category: "backend" },
+  // Backend
+  { name: "Go", category: "backend" },
+  { name: "PostgreSQL", category: "backend" },
+  { name: "Next.js", category: "backend" },
 
-	// Tools
-	{ name: "Git", category: "tools" },
-	{ name: "Docker", category: "tools" },
+  // Tools
+  { name: "Git", category: "tools" },
+  { name: "Docker", category: "tools" },
 ];
 ---
 
 <Layout
-	title="Lukáš Netolický | Computer Enthusiast"
-	description="High school student who loves coding and tech stuff."
+  title="Lukáš Netolický | Computer Enthusiast"
+  description="High school student who loves coding and tech stuff."
 >
-	<section class="container">
-		<div class="hero">
-			<h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
-			<p class="hero-subtitle">Student Developer</p>
-			<p class="hero-description">
-				I'm a 16-year-old high school student who loves coding and tech stuff. I
-				enjoy learning new things and building projects that challenge my
-				skills. I'm always looking for new opportunities to grow and improve my
-				skills. Whether it's through school projects or personal endeavors, I'm
-				committed to pushing myself to learn and grow!
-			</p>
-			<div class="hero-buttons">
-				<Link href="/projects" type="primary">Check Out My Projects</Link>
-				<Link href="/about">More About Me</Link>
-			</div>
-		</div>
-	</section>
+  <section class="container">
+    <div class="hero">
+      <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
+      <p class="hero-subtitle">Student Developer</p>
+      <p class="hero-description">
+        I'm a 16-year-old high school student who loves coding and tech stuff. I
+        enjoy learning new things and building projects that challenge my
+        skills. I'm always looking for new opportunities to grow and improve my
+        skills. Whether it's through school or my personal side projects, I'm
+        committed to pushing myself to learn and grow!
+      </p>
+      <div class="hero-buttons">
+        <Link href="/projects" type="primary">Check Out My Projects</Link>
+        <Link href="/about">More About Me</Link>
+      </div>
+    </div>
+  </section>
 
-	<!-- About Section -->
-	<section class="about">
-		<div class="container">
-			<h2>About Me</h2>
-			<div class="about-content">
-				<p>
-					I'm a high school student who got pretty obsessed with coding. I
-					love figuring out how stuff works and learning when things break along
-					the way. Playing with different technologies, libraries, and
-					programming languages is something I really enjoy!
-				</p>
-				<p>
-					My projects range from web apps to all sorts of coding experiments.
-					I'm all about hands-on learning experience and enjoy jumping into
-					different challenges that level up my skills and help me solve cool
-					problems.
-				</p>
-			</div>
-		</div>
-	</section>
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I'm a high school student who got pretty obsessed with coding. I love
+          figuring out how stuff works and learning when things break along the
+          way. Playing with different technologies, libraries, and programming
+          languages is something I really enjoy!
+        </p>
+        <p>
+          My projects range from web apps to all sorts of coding experiments.
+          I'm all about hands-on learning experience and enjoy jumping into
+          different challenges that level up my skills and help me solve cool
+          problems.
+        </p>
+      </div>
+    </div>
+  </section>
 
-	<!-- Technologies Section -->
-	<section class="container technologies">
-		<h2>Technologies I Work With</h2>
-		<div class="tech-categories">
-			<div class="tech-category">
-				<h3>Frontend</h3>
-				<ul class="tech-list">
-					{
-						technologies
-							.filter((tech) => tech.category === "frontend")
-							.map((tech) => <li class="tech-item">{tech.name}</li>)
-					}
-				</ul>
-			</div>
-			<div class="tech-category">
-				<h3>Backend</h3>
-				<ul class="tech-list">
-					{
-						technologies
-							.filter((tech) => tech.category === "backend")
-							.map((tech) => <li class="tech-item">{tech.name}</li>)
-					}
-				</ul>
-			</div>
-			<div class="tech-category">
-				<h3>Tools & Others</h3>
-				<ul class="tech-list">
-					{
-						technologies
-							.filter((tech) => tech.category === "tools")
-							.map((tech) => <li class="tech-item">{tech.name}</li>)
-					}
-				</ul>
-			</div>
-		</div>
-	</section>
+  <!-- Technologies Section -->
+  <section class="container technologies">
+    <h2>Technologies I Work With</h2>
+    <div class="tech-categories">
+      <div class="tech-category">
+        <h3>Frontend</h3>
+        <ul class="tech-list">
+          {
+            technologies
+              .filter((tech) => tech.category === "frontend")
+              .map((tech) => <li class="tech-item">{tech.name}</li>)
+          }
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Backend</h3>
+        <ul class="tech-list">
+          {
+            technologies
+              .filter((tech) => tech.category === "backend")
+              .map((tech) => <li class="tech-item">{tech.name}</li>)
+          }
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Tools & Others</h3>
+        <ul class="tech-list">
+          {
+            technologies
+              .filter((tech) => tech.category === "tools")
+              .map((tech) => <li class="tech-item">{tech.name}</li>)
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-	/* Hero Section */
-	.hero {
-		padding: var(--space-3xl) 0;
-		background-color: var(--color-bg);
-		max-width: 800px;
-		margin: 0 auto;
-		text-align: center;
-	}
+  /* Hero Section */
+  .hero {
+    padding: var(--space-3xl) 0;
+    background-color: var(--color-bg);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-	.hero h1 {
-		font-size: var(--font-5xl);
-		margin-bottom: var(--space-md);
-	}
+  .hero h1 {
+    font-size: var(--font-5xl);
+    margin-bottom: var(--space-md);
+  }
 
-	.hero-subtitle {
-		font-size: var(--font-2xl);
-		color: var(--color-text-muted);
-		margin-bottom: var(--space-lg);
-		font-weight: var(--font-medium);
-	}
-    
-	.hero-description {
-		font-size: var(--font-lg);
-		margin-bottom: var(--space-xl);
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-		line-height: 1.6;
-	}
+  .hero-subtitle {
+    font-size: var(--font-2xl);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    font-weight: var(--font-medium);
+  }
 
-	.hero-buttons {
-		display: flex;
-		gap: var(--space-md);
-		justify-content: center;
-	}
+  .hero-description {
+    font-size: var(--font-lg);
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
 
-	/* About Section */
-	.about {
-		padding: var(--space-3xl) 0;
-		background-color: var(--color-bg-muted);
-	}
+  .hero-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+  }
 
-	.about h2 {
-		text-align: center;
-		margin-bottom: var(--space-xl);
-	}
+  /* About Section */
+  .about {
+    padding: var(--space-3xl) 0;
+    background-color: var(--color-bg-muted);
+  }
 
-	.about-content {
-		max-width: 810px;
-		margin: 0 auto;
-	}
+  .about h2 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
 
-	.about-content p {
-		margin-bottom: var(--space-md);
-		line-height: 1.6;
-	}
+  .about-content {
+    max-width: 810px;
+    margin: 0 auto;
+  }
 
-	/* Technologies Section */
-	.technologies {
-		padding: var(--space-3xl) 0;
-	}
+  .about-content p {
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
 
-	.technologies h2 {
-		text-align: center;
-		margin-bottom: var(--space-xl);
-	}
+  /* Technologies Section */
+  .technologies {
+    padding: var(--space-3xl) 0;
+  }
 
-	.tech-categories {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-		gap: var(--space-xl);
-		margin: 0 auto;
-	}
+  .technologies h2 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
 
-	.tech-category h3 {
-		margin-bottom: var(--space-md);
-		color: var(--color-primary);
-		text-align: center;
-	}
+  .tech-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: var(--space-xl);
+    margin: 0 auto;
+  }
 
-	.tech-list {
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-sm);
-		justify-content: center;
-	}
+  .tech-category h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+    text-align: center;
+  }
 
-	.tech-item {
-		background-color: var(--color-bg-muted);
-		padding: var(--space-xs) var(--space-md);
-		border-radius: 20px;
-		font-size: var(--font-sm);
-		transition: all 0.2s ease;
-	}
+  .tech-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+  }
 
-	.tech-item:hover {
-		background-color: var(--color-primary-muted);
-		transform: translateY(-3px);
-	}
+  .tech-item {
+    background-color: var(--color-bg-muted);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 20px;
+    font-size: var(--font-sm);
+    transition: all 0.2s ease;
+  }
 
-	/* Responsive Adjustments */
-	@media (max-width: 768px) {
-		.hero h1 {
-			font-size: var(--font-4xl);
-		}
+  .tech-item:hover {
+    background-color: var(--color-primary-muted);
+    transform: translateY(-3px);
+  }
 
-		.hero-subtitle {
-			font-size: var(--font-xl);
-		}
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: var(--font-4xl);
+    }
 
-		.hero-buttons {
-			flex-direction: column;
-			gap: var(--space-sm);
-		}
+    .hero-subtitle {
+      font-size: var(--font-xl);
+    }
 
-		.tech-categories {
-			grid-template-columns: 1fr;
-		}
-	}
+    .hero-buttons {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .tech-categories {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

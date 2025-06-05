@@ -8,7 +8,6 @@ cover: "../../assets/images/projects/lukasnetolicky-website.png"
 coverAlt: "Screenshot of my personal website"
 demo: "https://lukasnetolicky.cz"
 source: "https://github.com/lukyNet21/lukasnetolicky.cz"
-featured: true
 ---
 
 ## About This Project
