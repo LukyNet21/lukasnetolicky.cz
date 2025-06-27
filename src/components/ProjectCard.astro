@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import "../styles/card.css"
 import "../styles/technologies.css";
 import Date from "./Date.astro";
 import { Image } from "astro:assets";
@@ -22,7 +23,7 @@ const {
 } = Astro.props as CollectionEntry<"projects">;
 ---
 
-<article class={`project-card ${featured ? "featured" : ""}`}>
+<article class={`card ${featured ? "featured" : ""}`}>
   {featured && <span class="featured-badge">Featured</span>}
   <Image
     transition:name={`project-cover-${id}`}
@@ -30,20 +31,20 @@ const {
     alt={coverAlt}
     loading="lazy"
     quality={50}
-    class="project-image"
+    class="image"
     width={500}
     height={300}
   />
-  <div class="project-content">
+  <div class="content">
     <h2 transition:name={`project-title-${id}`}>{title}</h2>
     {
       published && (
-        <div class="project-date" transition:name={`project-published-${id}`}>
+        <div class="date" transition:name={`project-published-${id}`}>
           Published: <Date date={published} />
         </div>
       )
     }
-    <div class="project-technologies">
+    <div class="technologies">
       {
         technologies.map((tech) => (
           <span
@@ -62,7 +63,7 @@ const {
           : description
       }
     </p>
-    <div class="project-links" transition:name={`project-links-${id}`}>
+    <div class="links" transition:name={`project-links-${id}`}>
       <Link href={`/projects/${id}`} size="small" type="primary">
         View Details
       </Link>
@@ -89,106 +90,3 @@ const {
     </div>
   </div>
 </article>
-
-<style>
-  .project-card {
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--color-bg-card);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-card.featured {
-    border: 2px solid var(--color-secondary);
-  }
-
-  .featured-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background-color: var(--color-secondary);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 16px;
-    font-size: var(--font-xs);
-    font-weight: var(--font-bold);
-    z-index: 10;
-  }
-
-  .project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-  }
-
-  .project-content {
-    padding: var(--space-md);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .project-content h2 {
-    font-size: var(--font-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--color-text);
-  }
-
-  .project-date {
-    font-size: var(--font-xs);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-  }
-
-  .project-content p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-    font-size: var(--font-sm);
-  }
-
-  .project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-md);
-  }
-
-  .project-links {
-    display: flex;
-    justify-content: space-around;
-    gap: var(--space-md);
-    margin-top: auto;
-  }
-
-  @media (max-width: 768px) {
-    .project-content {
-      padding: var(--space-sm);
-    }
-
-    .project-content h2 {
-      font-size: var(--font-md);
-    }
-
-    .project-technologies {
-      margin-bottom: var(--space-sm);
-    }
-  }
-</style>

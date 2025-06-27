@@ -39,13 +39,13 @@ const technologies = [
       </p>
       <div class="hero-buttons">
         <Link href="/projects" type="primary">Check Out My Projects</Link>
-        <Link href="/about">More About Me</Link>
+        <Link href="/about" color="secondary">More About Me</Link>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="about">
+  <section class="home-section about">
     <div class="container">
       <h2>About Me</h2>
       <div class="about-content">
@@ -66,7 +66,7 @@ const technologies = [
   </section>
 
   <!-- Technologies Section -->
-  <section class="container technologies">
+  <section class="container home-section technologies">
     <h2>Technologies I Work With</h2>
     <div class="tech-categories">
       <div class="tech-category">
@@ -107,7 +107,6 @@ const technologies = [
   /* Hero Section */
   .hero {
     padding: var(--space-3xl) 0;
-    background-color: var(--color-bg);
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -120,7 +119,7 @@ const technologies = [
 
   .hero-subtitle {
     font-size: var(--font-2xl);
-    color: var(--color-text-muted);
+    color: var(--text-muted);
     margin-bottom: var(--space-lg);
     font-weight: var(--font-medium);
   }
@@ -141,14 +140,17 @@ const technologies = [
   }
 
   /* About Section */
-  .about {
+  .home-section{
     padding: var(--space-3xl) 0;
-    background-color: var(--color-bg-muted);
   }
 
-  .about h2 {
+  .home-section h2 {
     text-align: center;
     margin-bottom: var(--space-xl);
+  }
+
+  .about {
+    background-color: var(--bg);
   }
 
   .about-content {
@@ -162,15 +164,6 @@ const technologies = [
   }
 
   /* Technologies Section */
-  .technologies {
-    padding: var(--space-3xl) 0;
-  }
-
-  .technologies h2 {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-  }
-
   .tech-categories {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -180,7 +173,7 @@ const technologies = [
 
   .tech-category h3 {
     margin-bottom: var(--space-md);
-    color: var(--color-primary);
+    color: var(--secondary);
     text-align: center;
   }
 
@@ -193,15 +186,16 @@ const technologies = [
   }
 
   .tech-item {
-    background-color: var(--color-bg-muted);
+    background: var(--gradient);
+    border: 1px solid var(--bg-light);
     padding: var(--space-xs) var(--space-md);
     border-radius: 20px;
     font-size: var(--font-sm);
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease;
   }
 
   .tech-item:hover {
-    background-color: var(--color-primary-muted);
+    background: var(--gradient-hover);
     transform: translateY(-3px);
   }
 

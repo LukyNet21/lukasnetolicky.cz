@@ -1,18 +1,23 @@
 :root {
-  /* Theme Colors - Semantic naming for light mode */
-  --color-primary: #4a6cf7;
-  --color-primary-muted: #6e8df8;
+  /* Theme Colors */
+  --bg-dark: oklch(0.1 0.02 246);
+  --bg: oklch(0.15 0.02 246);
+  --bg-light: oklch(0.2 0.02 246);
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
-  --color-secondary: #f97316;
-  --color-secondary-muted: #fb923c;
+  --text: oklch(0.96 0.04 246);
+  --text-muted: oklch(0.76 0.04 246);
 
-  --color-text: #111827;
-  --color-text-muted: #374151;
+  --highlight: oklch(0.5 0.04 246);
+  --border: oklch(0.4 0.04 246);
+  --border-muted: oklch(0.3 0.04 246);
 
-  --color-bg: #ffffff;
-  --color-bg-muted: #f3f4f6;
+  --primary: oklch(61.876% 0.09368 246.389);
+  --secondary: oklch(64.678% 0.1279 61.564);
 
-  /* Spacing System - Used for margins, padding, and positioning */
+
+  /* Spacing System */
   /* 4px */
   --space-xs: 0.25rem;
   /* 8px */
@@ -28,7 +33,7 @@
   /* 64px */
   --space-3xl: 4rem;
 
-  /* Typography Scale - Using the same scale as spacing for consistency */
+  /* Typography Scale */
   /* 12px */
   --font-xs: 0.75rem;
   /* 14px */
@@ -71,8 +76,8 @@ body {
 }
 
 body {
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--text);
+  background-color: var(--bg-dark);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: var(--font-normal);
   font-size: var(--font-md);
@@ -113,21 +118,16 @@ h3 {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
+  transition: color 0.2s ease, text-decoration 0.2s ease, font-weight 0.2s, transform 0.2s;
 }
 
 a:hover,
 a:focus {
-  color: var(--color-primary-muted);
   text-decoration: underline;
 }
 
-a:focus {
-  outline: 2px solid var(--color-primary-muted);
-  outline-offset: 2px;
-}
 
 .section {
   margin-bottom: var(--space-2xl);
@@ -135,10 +135,10 @@ a:focus {
 
 .section h2 {
   font-size: var(--font-2xl);
-  color: var(--color-text);
+  color: var(--text);
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-xs);
-  border-bottom: 2px solid var(--color-bg-muted);
+  border-bottom: 2px solid var(--bg-light);
 }
 
 .section p {
@@ -146,16 +146,16 @@ a:focus {
 }
 
 .highlight {
-  color: var(--color-primary);
+  color: var(--secondary);
 }
 
 .page-header {
   text-align: center;
-  padding: var(--space-5xl) 0 var(--space-xl);
+  padding: 3rem 0 2rem;
 }
 
 .subtitle {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   font-size: var(--font-lg);
   max-width: 50rem;
   margin: 0 auto;

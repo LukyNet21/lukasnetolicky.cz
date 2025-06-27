@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import "../../styles/post.css";
 import "../../styles/technologies.css";
 import Link from "../../components/Link.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
@@ -22,12 +23,12 @@ const { Content, headings } = await render(post);
 
 <Layout title={post.data.title} description={post.data.description}>
   <div class="container">
-    <div class="project-header">
+    <div class="post-header">
       <h1 transition:name={`project-title-${post.id}`}>{post.data.title}</h1>
       {
         post.data.published && (
           <div
-            class="project-date"
+            class="post-date"
             transition:name={`project-published-${post.id}`}
           >
             Published: <Date date={post.data.published} />
@@ -36,7 +37,7 @@ const { Content, headings } = await render(post);
       }
       {
         post.data.technologies && (
-          <div class="project-technologies">
+          <div class="post-technologies">
             {post.data.technologies.map((tech) => (
               <span
                 class={`technology ${normalizeTech(tech)}`}
@@ -54,7 +55,7 @@ const { Content, headings } = await render(post);
       transition:name={`project-cover-${post.id}`}
       src={post.data.cover}
       alt={post.data.coverAlt}
-      class="project-image"
+      class="post-image"
       loading="lazy"
       format="avif"
       width={1200}
@@ -63,7 +64,7 @@ const { Content, headings } = await render(post);
       decoding="async"
     />
 
-    <div class="project-links" transition:name={`project-links-${post.id}`}>
+    <div class="post-links" transition:name={`project-links-${post.id}`}>
       {
         post.data.demo && (
           <Link
@@ -90,142 +91,18 @@ const { Content, headings } = await render(post);
       }
     </div>
 
-    <div class="project-content-wrapper">
+    <div class="post-content-wrapper">
       {headings.length > 0 && <TableOfContents headings={headings} />}
 
-      <div class="project-content">
+      <div class="post-content">
         <Content />
       </div>
     </div>
 
     <div class="back-link">
-      <Link href="/projects" type="primary" size="small" color="primary">
+      <Link href="/projects" type="primary" size="medium" color="primary">
         ← Back to Projects
       </Link>
     </div>
   </div>
 </Layout>
-
-<style>
-  .project-header {
-    padding-top: var(--space-3xl);
-    margin-bottom: var(--space-xl);
-    text-align: center;
-  }
-
-  .project-date {
-    color: var(--color-text-muted);
-    font-size: var(--font-sm);
-    margin-bottom: var(--space-md);
-  }
-
-  .project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin: var(--space-md) 0;
-    justify-content: center;
-  }
-
-  .project-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .project-links {
-    display: flex;
-    gap: var(--space-md);
-    margin: var(--space-xl) 0;
-    justify-content: center;
-  }
-
-  .project-content-wrapper {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: var(--space-xl);
-    margin: var(--space-xl) 0;
-    align-items: start;
-  }
-
-  .project-content {
-    line-height: 1.7;
-    color: var(--color-text);
-  }
-
-  .project-content :global(h1),
-  .project-content :global(h2),
-  .project-content :global(h3) {
-    scroll-margin-top: 6rem;
-  }
-
-  .project-content :global(h2) {
-    font-size: var(--font-xl);
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-    color: var(--color-text);
-  }
-
-  .project-content :global(h3) {
-    font-size: var(--font-lg);
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--color-text);
-  }
-
-  .project-content :global(p) {
-    margin-bottom: var(--space-md);
-  }
-
-  .project-content :global(ul),
-  .project-content :global(ol) {
-    margin: var(--space-md) 0;
-    padding-left: var(--space-lg);
-  }
-
-  .project-content :global(li) {
-    margin-bottom: var(--space-sm);
-  }
-
-  .project-content :global(pre) {
-    background-color: var(--color-bg-code);
-    border-radius: 6px;
-    padding: var(--space-md);
-    overflow-x: auto;
-    margin: var(--space-md) 0;
-  }
-
-  .project-content :global(img) {
-    max-width: 100%;
-    border-radius: 6px;
-    margin: var(--space-md) 0;
-  }
-
-  .back-link {
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-lg);
-    text-align: center;
-  }
-
-  @media (max-width: 1200px) {
-    .project-container {
-      padding: var(--space-lg) var(--space-sm);
-    }
-
-    .project-header h1 {
-      font-size: var(--font-xl);
-    }
-
-    .project-content-wrapper {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .project-links {
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-  }
-</style>

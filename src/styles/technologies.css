@@ -1,6 +1,6 @@
 .technology {
-  background-color: var(--color-bg-muted);
-  color: var(--color-primary);
+  background-color: var(--bg-light);
+  color: var(--text);
   padding: 4px 8px;
   border-radius: 16px;
   font-size: var(--font-xs);

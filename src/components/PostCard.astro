@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import "../styles/card.css"
 import "../styles/technologies.css";
 import Date from "./Date.astro";
 import { Image } from "astro:assets";
@@ -12,28 +13,28 @@ const {
 } = Astro.props as CollectionEntry<"blog">;
 ---
 
-<article class="post-card">
+<article class="card">
   <Image
     transition:name={`post-cover-${id}`}
     src={cover}
     alt={coverAlt}
     loading="lazy"
     quality={50}
-    class="post-image"
+    class="image"
     width={500}
     height={300}
     format="avif"
   />
-  <div class="post-content">
+  <div class="content">
     <h2 transition:name={`post-title-${id}`}>{title}</h2>
     {
       published && (
-        <div class="post-date" transition:name={`post-published-${id}`}>
+        <div class="date" transition:name={`post-published-${id}`}>
           Published: <Date date={published} />
         </div>
       )
     }
-    <div class="post-technologies">
+    <div class="technologies">
       {
         technologies.map((tech) => (
           <span
@@ -52,96 +53,10 @@ const {
           : description
       }
     </p>
-    <div class="post-links" transition:name={`post-links-${id}`}>
+    <div class="links" transition:name={`post-links-${id}`}>
       <Link href={`/blog/${id}`} size="small" type="primary">
         View Details
       </Link>
     </div>
   </div>
 </article>
-
-<style>
-  .post-card {
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--color-bg-card);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .post-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .post-card:hover .post-image {
-    transform: scale(1.05);
-  }
-
-  .post-content {
-    padding: var(--space-md);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .post-content h2 {
-    font-size: var(--font-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--color-text);
-  }
-
-  .post-date {
-    font-size: var(--font-xs);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-  }
-
-  .post-content p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-md);
-    font-size: var(--font-sm);
-  }
-
-  .post-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-md);
-  }
-
-  .post-links {
-    display: flex;
-    justify-content: space-around;
-    gap: var(--space-md);
-    margin-top: auto;
-  }
-
-  @media (max-width: 768px) {
-    .post-content {
-      padding: var(--space-sm);
-    }
-
-    .post-content h2 {
-      font-size: var(--font-md);
-    }
-
-    .post-technologies {
-      margin-bottom: var(--space-sm);
-    }
-  }
-</style>

@@ -44,33 +44,33 @@ const {
 
   /* Colors */
   .button-primary {
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
+    border: 2px solid var(--primary);
+    color: var(--primary);
   }
 
   .button-primary.primary {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--primary);
+    color: var(--bg);
   }
 
   .button-secondary {
-    border: 2px solid var(--color-secondary);
-    color: var(--color-secondary);
+    border: 2px solid var(--secondary);
+    color: var(--text);
   }
 
   .button-secondary.primary {
-    background-color: var(--color-secondary);
-    color: white;
+    background-color: var(--bg-light);
+    color: var(--text);
+    border-color: var(--bg-light);
   }
 
   .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   /* Sizes */
   .small {
-    font-size: var(--font-sm);
+    font-size: var(--font-xs);
     padding: var(--space-xs) var(--space-sm);
   }
 
