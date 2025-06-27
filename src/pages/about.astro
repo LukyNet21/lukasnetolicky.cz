@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import Badge from "../components/Badge.astro";
+
+import ITE from "../assets/images/about/ITE.png";
+import I2CS from "../assets/images/about/I2CS.png";
 ---
 
 <Layout
@@ -100,7 +104,23 @@ import Link from "../components/Link.astro";
         </div>
       </div>
 
-      <div class="about-section">
+      <div class="section animate-left">
+        <h2>Certifications</h2>
+        <div class="badges">
+          <Badge
+            image={ITE}
+            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
+            alt="IT Essentials Credly badge"
+          />
+          <Badge
+            image={I2CS}
+            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
+            alt="Introduction to Cybersecurity Credly badge"
+          />
+        </div>
+      </div>
+
+      <div class="section animate-right">
         <h2>What's Next</h2>
         <p>
           I'm always looking to learn new things and tackle interesting
@@ -149,6 +169,13 @@ import Link from "../components/Link.astro";
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: var(--space-xs);
+  }
+
+  .badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: var(--space-xs);
+    justify-items: center;
   }
 
   .cta-container {

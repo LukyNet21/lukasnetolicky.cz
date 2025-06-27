@@ -3,7 +3,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
+  //  { href: "/blog", label: "Blog" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -198,7 +198,10 @@ const currentPath = Astro.url.pathname;
     });
 
     document.addEventListener("click", (event) => {
-      if (!menuToggle?.contains(event.target as Node) && !navLinks?.contains(event.target as Node)) {
+      if (
+        !menuToggle?.contains(event.target as Node) &&
+        !navLinks?.contains(event.target as Node)
+      ) {
         navLinks?.classList.remove("show");
         menuToggle?.setAttribute("aria-expanded", "false");
       }
