@@ -25,7 +25,7 @@ import I2CS from "../assets/images/about/I2CS.png";
             href="https://www.delta-skola.cz/"
             target="_blank"
             rel="noopener noreferrer">DELTA IT High School</a
-          > in the Czech Republic, where I'm learning all sorts of tech skills. When
+          > in the Czech Republic, where I learn all sorts of tech skills. When
           I'm not in class, I like to work on personal coding projects and learn
           new technologies that help me build useful solutions.
         </p>
@@ -136,6 +136,22 @@ import I2CS from "../assets/images/about/I2CS.png";
 </Layout>
 
 <style>
+  .section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section h2 {
+    font-size: var(--font-2xl);
+    color: var(--text);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--bg-light);
+  }
+
+  .section p {
+    margin-bottom: var(--space-sm);
+  }
+
   .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -174,7 +190,7 @@ import I2CS from "../assets/images/about/I2CS.png";
   .badges {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-gap: var(--space-xs);
+    grid-gap: var(--space-md);
     justify-items: center;
   }
 

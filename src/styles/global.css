@@ -1,21 +1,29 @@
 :root {
   /* Theme Colors */
-  --bg-dark: oklch(0.1 0.02 246);
-  --bg: oklch(0.15 0.02 246);
-  --bg-light: oklch(0.2 0.02 246);
+  --bg-dark: oklch(0.1 0.025 225);
+  --bg: oklch(0.15 0.025 225);
+  --bg-light: oklch(0.2 0.025 225);
   --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
   --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
-  --text: oklch(0.96 0.04 246);
-  --text-muted: oklch(0.76 0.04 246);
+  --text: oklch(0.96 0.05 225);
+  --text-muted: oklch(0.76 0.05 225);
 
-  --highlight: oklch(0.5 0.04 246);
-  --border: oklch(0.4 0.04 246);
-  --border-muted: oklch(0.3 0.04 246);
+  --highlight: oklch(0.5 0.05 225);
+  --border: oklch(0.4 0.05 225);
+  --border-muted: oklch(0.3 0.05 225);
 
-  --primary: oklch(61.876% 0.09368 246.389);
-  --secondary: oklch(64.678% 0.1279 61.564);
+  --primary: oklch(0.76 0.1 225);
+  --secondary: oklch(0.76 0.1 45);
 
+  --danger: oklch(0.7 0.05 30);
+  --warning: oklch(0.7 0.05 100);
+  --success: oklch(0.7 0.05 160);
+  --info: oklch(0.7 0.05 260);
+
+  /* Shadow System */
+  --shadow: 0 2px 8px oklch(0.1 0.015 225 / 0.15), 0 1px 3px oklch(0.1 0.015 225 / 0.1);
+  --shadow-hover: 0 4px 16px oklch(0.1 0.015 225 / 0.2), 0 2px 6px oklch(0.1 0.015 225 / 0.15);
 
   /* Spacing System */
   /* 4px */
@@ -65,6 +73,33 @@
   --font-black: 900;
 }
 
+body.light {
+  --bg-dark: oklch(0.92 0.015 261);
+  --bg: oklch(0.96 0.015 261);
+  --bg-light: oklch(1 0.015 261);
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+
+  --text: oklch(0.15 0.03 261);
+  --text-muted: oklch(0.4 0.03 261);
+
+  --highlight: oklch(1 0.03 261);
+  --border: oklch(0.6 0.03 261);
+  --border-muted: oklch(0.7 0.03 261);
+
+  --primary: oklch(0.4 0.1 261);
+  --secondary: oklch(0.4 0.1 81);
+
+  --danger: oklch(0.5 0.05 30);
+  --warning: oklch(0.5 0.05 100);
+  --success: oklch(0.5 0.05 160);
+  --info: oklch(0.5 0.05 260);
+
+  /* Light theme shadows */
+  --shadow: 0 2px 8px oklch(0.1 0.015 225 / 0.2), 0 1px 3px oklch(0.1 0.015 225 / 0.15);
+  --shadow-hover: 0 4px 16px oklch(0.1 0.015 225 / 0.25), 0 2px 6px oklch(0.1 0.015 225 / 0.2);
+}
+
 *,
 *::before,
 *::after,
@@ -97,10 +132,11 @@ h6 {
   font-weight: var(--font-bold);
   line-height: 1.2;
   margin-bottom: var(--space-md);
+  scroll-margin-top: 100px;
 }
 
 h1 {
-  font-size: var(--font-3xl);
+  font-size: var(--font-5xl);
 }
 
 h2 {
@@ -128,30 +164,13 @@ a:focus {
   text-decoration: underline;
 }
 
-
-.section {
-  margin-bottom: var(--space-2xl);
-}
-
-.section h2 {
-  font-size: var(--font-2xl);
-  color: var(--text);
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 2px solid var(--bg-light);
-}
-
-.section p {
-  margin-bottom: var(--space-sm);
-}
-
 .highlight {
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 .page-header {
   text-align: center;
-  padding: 3rem 0 2rem;
+  padding: 3rem 0;
 }
 
 .subtitle {

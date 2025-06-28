@@ -50,9 +50,9 @@ const technologies = [
       <h2>About Me</h2>
       <div class="about-content">
         <p>
-          I'm a high school student who got pretty obsessed with coding. I love
-          figuring out how stuff works and learning when things break along the
-          way. Playing with different technologies, libraries, and programming
+          I'm a high school student that likes coding. I love figuring
+          out how stuff works and learning when things break along the way.
+          Playing with different technologies, libraries, and programming
           languages is something I really enjoy!
         </p>
         <p>
@@ -140,7 +140,7 @@ const technologies = [
   }
 
   /* About Section */
-  .home-section{
+  .home-section {
     padding: var(--space-3xl) 0;
   }
 
@@ -181,7 +181,7 @@ const technologies = [
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
+    gap: var(--space-md);
     justify-content: center;
   }
 
@@ -191,11 +191,13 @@ const technologies = [
     padding: var(--space-xs) var(--space-md);
     border-radius: 20px;
     font-size: var(--font-sm);
+    box-shadow: var(--shadow);
     transition: transform 0.2s ease;
   }
 
   .tech-item:hover {
     background: var(--gradient-hover);
+    box-shadow: var(--shadow-hover);
     transform: translateY(-3px);
   }
 

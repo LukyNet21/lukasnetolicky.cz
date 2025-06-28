@@ -2,6 +2,7 @@
     border-radius: 8px;
     overflow: hidden;
     background: var(--gradient);
+    box-shadow: var(--shadow);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -14,6 +15,7 @@
   .card:hover {
     transform: translateY(-5px);
     background: var(--gradient-hover);
+    box-shadow: var(--shadow-hover);
   }
 
   .card.featured {

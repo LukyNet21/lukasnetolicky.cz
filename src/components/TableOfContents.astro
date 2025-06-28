@@ -31,19 +31,47 @@ const filteredHeadings = headings.filter(
   </nav>
 </aside>
 
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const tocLinks = document.querySelectorAll(".toc-link");
+    tocLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        const targetId = link.getAttribute("href")?.substring(1);
+        if (!targetId) return;
+        
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+        
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      });
+    });
+  });
+</script>
+
 <style>
   .toc-container {
     position: sticky;
     top: 6rem;
     padding: var(--space-md);
-    background: var(--gradient);
+    background-color: var(--bg-light);
     border-radius: 8px;
     margin-bottom: var(--space-lg);
     align-self: start;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease;
   }
 
   .toc-container:hover {
-    background: var(--gradient-hover);
+    box-shadow: var(--shadow-hover);
   }
 
   .toc-header {
