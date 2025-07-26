@@ -6,7 +6,7 @@ import "../../styles/technologies.css";
 import Link from "../../components/Link.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Date from "../../components/Date.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { normalizeTech } from "../../utils/usils";
 
 export async function getStaticPaths() {
@@ -18,19 +18,31 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const coverOptimized = await getImage({
+  src: post.data.cover,
+  width: 1200,
+  height: 630,
+  format: "webp",
+  quality: 70,
+  fit: "cover",
+});
+
+const imageUrl = new URL(coverOptimized.src, Astro.site).toString();
+
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={imageUrl}
+>
   <div class="container">
     <div class="post-header">
       <h1 transition:name={`post-title-${post.id}`}>{post.data.title}</h1>
       {
         post.data.published && (
-          <div
-            class="post-date"
-            transition:name={`post-published-${post.id}`}
-          >
+          <div class="post-date" transition:name={`post-published-${post.id}`}>
             Published: <Date date={post.data.published} />
           </div>
         )
@@ -50,7 +62,7 @@ const { Content, headings } = await render(post);
         )
       }
     </div>
-    
+
     <Image
       transition:name={`post-cover-${post.id}`}
       src={post.data.cover}
@@ -79,3 +91,4 @@ const { Content, headings } = await render(post);
     </div>
   </div>
 </Layout>
+

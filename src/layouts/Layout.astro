@@ -3,34 +3,55 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import type { undefined } from "astro:schema";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
+  image?: string;
 }
 
+const { title = "Lukáš Netolický", description, image } = Astro.props as Props;
+const url = new URL(Astro.url.pathname, Astro.site).toString();
 
-const { title = "Lukáš Netolický", description } = Astro.props as Props;
+const twitterCardType = image ? "summary_large_image" : "summary";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={description} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="author" content="Lukáš Netolický" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content={twitterCardType} />
+    <meta name="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={image} />}
+
     <ClientRouter />
   </head>
-	<body class="light">
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <body class="light">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
