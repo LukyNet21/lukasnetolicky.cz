@@ -21,7 +21,7 @@
 
 .technology.css {
   background-color: rgba(21, 114, 182, 0.15);
-  color: #1572b6;
+  color: #0e4f85;
 }
 
 .technology.javascript {
@@ -31,7 +31,7 @@
 
 .technology.typescript {
   background-color: rgba(45, 121, 199, 0.15);
-  color: #2d79c7;
+  color: #1e5ca0;
 }
 
 .technology.astro {
@@ -56,5 +56,5 @@
 
 .technology.json {
   background-color: rgba(79, 129, 189, 0.15);
-  color: #4f81bd;
+  color: #336699;
 }

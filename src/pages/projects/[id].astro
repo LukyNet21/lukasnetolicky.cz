@@ -71,12 +71,10 @@ const { Content, headings } = await render(post);
       src={post.data.cover}
       alt={post.data.coverAlt}
       class="post-image"
-      loading="lazy"
       format="avif"
-      width={1200}
-      height={630}
+      width={1100}
+      height={550}
       quality={70}
-      decoding="async"
     />
 
     <div class="post-links" transition:name={`project-links-${post.id}`}>

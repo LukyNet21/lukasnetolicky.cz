@@ -42,7 +42,9 @@ const currentPath = Astro.url.pathname;
             </li>
           ))
         }
-        <ThemeSwitcher />
+        <li>
+          <ThemeSwitcher />
+        </li>
       </ul>
     </nav>
   </div>
@@ -85,7 +87,9 @@ const currentPath = Astro.url.pathname;
     color: var(--text-muted);
     text-decoration: none;
     font-weight: var(--font-medium);
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
     padding: var(--space-xs) var(--space-sm);
     border-radius: 4px;
     transform-origin: center;
