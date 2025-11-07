@@ -1,25 +1,25 @@
 :root {
   /* Theme Colors */
-  --bg-dark: oklch(0.1 0.025 225);
-  --bg: oklch(0.15 0.025 225);
-  --bg-light: oklch(0.2 0.025 225);
+  --bg-dark: hsl(213 25% 1%);
+  --bg-light: hsl(211 9% 9%);
+  --bg: hsl(211 16% 4%);
   --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
   --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
-  --text: oklch(0.96 0.05 225);
-  --text-muted: oklch(0.76 0.05 225);
+  --text: hsl(211 47% 95%);
+  --text-muted: hsl(211 7% 70%);
 
-  --highlight: oklch(0.5 0.05 225);
-  --border: oklch(0.4 0.05 225);
-  --border-muted: oklch(0.3 0.05 225);
+  --highlight: hsl(211 5% 39%);
+  --border: hsl(211 6% 28%);
+  --border-muted: hsl(211 9% 18%);
 
-  --primary: oklch(0.76 0.1 225);
-  --secondary: oklch(0.76 0.1 45);
+  --primary: hsl(210 77% 72%);
+  --secondary: hsl(32 61% 63%);
 
-  --danger: oklch(0.7 0.05 30);
-  --warning: oklch(0.7 0.05 100);
-  --success: oklch(0.7 0.05 160);
-  --info: oklch(0.7 0.05 260);
+  --danger: hsl(9 26% 64%);
+  --warning: hsl(52 19% 57%);
+  --success: hsl(146 17% 59%);
+  --info: hsl(217 28% 65%);
 
   /* Shadow System */
   --shadow: 0 2px 8px oklch(0.1 0.015 225 / 0.15), 0 1px 3px oklch(0.1 0.015 225 / 0.1);
@@ -74,26 +74,26 @@
 }
 
 body.light {
-  --bg-dark: oklch(0.92 0.015 261);
-  --bg: oklch(0.96 0.015 261);
-  --bg-light: oklch(1 0.015 261);
+  --bg-dark: hsl(211 11% 90%);
+  --bg: hsl(211 22% 95%);
+  --bg-light: hsl(211 100% 100%);
   --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
   --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
-  --text: oklch(0.15 0.03 261);
-  --text-muted: oklch(0.4 0.03 261);
+  --text: hsl(211 31% 5%);
+  --text-muted: hsl(211 6% 28%);
 
-  --highlight: oklch(1 0.03 261);
-  --border: oklch(0.6 0.03 261);
-  --border-muted: oklch(0.7 0.03 261);
+  --highlight: hsl(211 100% 100%);
+  --border: hsl(211 4% 51%);
+  --border-muted: hsl(211 6% 62%);
 
-  --primary: oklch(0.4 0.1 261);
-  --secondary: oklch(0.4 0.1 81);
+  --primary: hsl(208 74% 28%);
+  --secondary: hsl(38 100% 17%);
+  --danger: hsl(9 21% 41%);
 
-  --danger: oklch(0.5 0.05 30);
-  --warning: oklch(0.5 0.05 100);
-  --success: oklch(0.5 0.05 160);
-  --info: oklch(0.5 0.05 260);
+  --warning: hsl(52 23% 34%);
+  --success: hsl(147 19% 36%);
+  --info: hsl(217 22% 41%);
 
   /* Light theme shadows */
   --shadow: 0 2px 8px oklch(0.1 0.015 225 / 0.2), 0 1px 3px oklch(0.1 0.015 225 / 0.15);
@@ -161,6 +161,11 @@ a {
 a:hover,
 a:focus {
   text-decoration: underline;
+}
+
+p {
+  max-width: 75ch;
+  font-size: var(--font-md)
 }
 
 .highlight {

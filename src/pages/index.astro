@@ -31,7 +31,7 @@ const technologies = [
       <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
       <p class="hero-subtitle">Student Developer</p>
       <p class="hero-description">
-        I'm a 16-year-old high school student who loves coding and tech stuff. I
+        I'm a 17-year-old high school student who loves coding and tech stuff. I
         enjoy learning new things and building projects that challenge my
         skills. I'm always looking for new opportunities to grow and improve my
         skills. Whether it's through school or my personal side projects, I'm
@@ -75,7 +75,7 @@ const technologies = [
           {
             technologies
               .filter((tech) => tech.category === "frontend")
-              .map((tech) => <li class="tech-item">{tech.name}</li>)
+              .map((tech) => <li>{tech.name}</li>)
           }
         </ul>
       </div>
@@ -85,7 +85,7 @@ const technologies = [
           {
             technologies
               .filter((tech) => tech.category === "backend")
-              .map((tech) => <li class="tech-item">{tech.name}</li>)
+              .map((tech) => <li>{tech.name}</li>)
           }
         </ul>
       </div>
@@ -95,7 +95,7 @@ const technologies = [
           {
             technologies
               .filter((tech) => tech.category === "tools")
-              .map((tech) => <li class="tech-item">{tech.name}</li>)
+              .map((tech) => <li>{tech.name}</li>)
           }
         </ul>
       </div>
@@ -185,7 +185,7 @@ const technologies = [
     justify-content: center;
   }
 
-  .tech-item {
+  .tech-list li {
     background: var(--gradient);
     border: 1px solid var(--bg-light);
     padding: var(--space-xs) var(--space-md);
@@ -195,7 +195,7 @@ const technologies = [
     transition: transform 0.2s ease;
   }
 
-  .tech-item:hover {
+  .tech-list li:hover {
     background: var(--gradient-hover);
     box-shadow: var(--shadow-hover);
     transform: translateY(-3px);
