@@ -1,10 +1,12 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
+  { href: "/", label: "Home", label_cs: "Domov" },
+  { href: "/about", label: "About", label_cs: "O mě" },
+  { href: "/projects", label: "Projects", label_cs: "Projekty" },
   //  { href: "/blog", label: "Blog" },
 ];
 
@@ -33,11 +35,26 @@ const currentPath = Astro.url.pathname;
           navItems.map((item) => (
             <li>
               <a
-                href={item.href}
-                aria-current={currentPath === item.href ? "page" : undefined}
+                href={getRelativeLocaleUrl(
+                  Astro.currentLocale || "en",
+                  item.href,
+                )}
+                aria-current={
+                  currentPath ===
+                  getRelativeLocaleUrl(Astro.currentLocale || "en", item.href)
+                    ? "page"
+                    : undefined
+                }
               >
-                <span class={currentPath === item.href ? "active" : ""}>
-                  {item.label}
+                <span
+                  class={
+                    currentPath ===
+                    getRelativeLocaleUrl(Astro.currentLocale || "en", item.href)
+                      ? "active"
+                      : ""
+                  }
+                >
+                  {Astro.currentLocale === "cs" ? item.label_cs : item.label}
                 </span>
               </a>
             </li>
@@ -45,6 +62,9 @@ const currentPath = Astro.url.pathname;
         }
         <li>
           <ThemeSwitcher />
+        </li>
+        <li>
+          <LanguageSwitcher />
         </li>
       </ul>
     </nav>
@@ -215,6 +235,9 @@ const currentPath = Astro.url.pathname;
     }
     .nav-links.show li:nth-child(5) {
       transition-delay: 0.5s;
+    }
+    .nav-links.show li:nth-child(6) {
+      transition-delay: 0.6s;
     }
   }
 </style>

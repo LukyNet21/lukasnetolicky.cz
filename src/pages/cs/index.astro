@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Link from "../../components/Link.astro";
+import "../../styles/home.css";
+import { homeTechnologies } from "../../constants.ts";
+---
+
+<Layout
+  title="Lukáš Netolický | IT nadšenec"
+  description="Jsem sředoškolák, kterého baví programování a informační technologie."
+>
+  <section class="container">
+    <div class="hero">
+      <h1>Ahoj! Jsem <span class="highlight">Lukáš</span></h1>
+      <p class="hero-subtitle">Student IT</p>
+      <p class="hero-description">
+        Je mi 17 let a studuju na střední škole. Baví mě programování a
+        technologie obecně. Rád se učím nové věci a tvořím projekty, na kterých
+        si zkouším a zlepšuju svoje technické dovednosti. Pořád se snažím
+        posouvat dál a učit se nové věci, ať už ve škole nebo ve volném čase.
+      </p>
+      <div class="hero-buttons">
+        <Link href="/cs/projects" type="primary">Moje projekty</Link>
+        <Link href="/cs/about" color="secondary">Více o mně</Link>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="home-section about">
+    <div class="container">
+      <h2>O mě</h2>
+      <div class="about-content">
+        <p>
+          Jsem středoškolák, kterého baví programování, IT a jiné technologie.
+          Rád zjišťuju, jak věci fungují, a učím se z chyb, když se něco pokazí.
+          Hodně mě baví zkoušet různé technologie, knihovny a programovací
+          jazyky.
+        </p>
+        <p>
+          Převážně tvořím webové aplikace, ale baví mě i různé jiné
+          programátorské projekty. Rád učím praxí a pouštím do nových výzev,
+          které mě posouvají dál a pomáhají mi řešit zajímavé problémy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="container home-section technologies">
+    <h2>Technologie, které používám</h2>
+    <div class="tech-categories">
+      <div class="tech-category">
+        <h3>Frontend</h3>
+        <ul class="tech-list">
+          {
+            homeTechnologies
+              .filter((tech) => tech.category === "frontend")
+              .map((tech) => <li>{tech.name}</li>)
+          }
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Backend</h3>
+        <ul class="tech-list">
+          {
+            homeTechnologies
+              .filter((tech) => tech.category === "backend")
+              .map((tech) => <li>{tech.name}</li>)
+          }
+        </ul>
+      </div>
+      <div class="tech-category">
+        <h3>Jiné nástroje</h3>
+        <ul class="tech-list">
+          {
+            homeTechnologies
+              .filter((tech) => tech.category === "tools")
+              .map((tech) => <li>{tech.name}</li>)
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

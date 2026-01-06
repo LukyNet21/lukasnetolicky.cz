@@ -1,0 +1,141 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Link from "../../components/Link.astro";
+import Badge from "../../components/Badge.astro";
+import "../../styles/about.css";
+
+import ITE from "../../assets/images/about/ITE.png";
+import I2CS from "../../assets/images/about/I2CS.png";
+---
+
+<Layout
+  title="O mě | Lukáš Netolický"
+  description="Něco více o mně, mých zájmech, studiu a programování."
+>
+  <div class="container">
+    <section class="page-header">
+      <h1>O <span class="highlight">Mě</span></h1>
+      <p class="subtitle">Moje cesta</p>
+    </section>
+
+    <section class="about-content">
+      <div class="section">
+        <h2>Kdo jsem?</h2>
+        <p>
+          Ahoj! Jmenuji se Lukáš, je mi 17 let a studuju na střední <a
+            href="https://www.delta-skola.cz/"
+            target="_blank"
+            rel="noopener noreferrer">IT škole DELTA</a
+          > v Pardubicích, kde se učím různé technické věci. Když nejsem ve škole,
+          rád pracuju na vlastních projektech a zkouším nové technologie, které mi
+          pomáhají vytvářet užitečné aplikace a získávat nové schopnosti.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Jak jsem se k tomu dostal</h2>
+        <p>
+          K programování jsem se dostal někdy v roce 2020, kdy jsem začal dělat
+          malé projekty jen tak pro zábavu. Z hraní si s kódem se ale rychle
+          stal koníček, když jsem zjistil, že si můžu vytvořit software, který
+          sám používám, který jsem zatím nikde jinde nenašel. Ten pocit, když
+          něco vyřeší reálný problém, mě neustále baví a motivuje mě pokračovat
+          dále.
+        </p>
+        <p>
+          Dneska se nejvíc věnuju webovým aplikacím. Rád si stavím řešení na
+          problémy, na které sám narazím, když něco neexistuje, prostě si to
+          vytvořím. Nejvíc se učím praxí, postupně zkouším různé technologie,
+          jazyky a frameworky, podle toho, co zrovna potřebuju k realizaci svých
+          nápadů.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Dovednosti</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Technologie, které používám</h3>
+
+            <div class="tech-group">
+              <h4>Frontend</h4>
+              <ul>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>HTML / CSS</li>
+                <li>Tailwind CSS</li>
+                <li>Astro</li>
+                <li>SASS / SCSS</li>
+              </ul>
+            </div>
+
+            <div class="tech-group">
+              <h4>Backend</h4>
+              <ul>
+                <li>Go</li>
+                <li>Node.js</li>
+                <li>Next.js</li>
+                <li>REST API</li>
+              </ul>
+            </div>
+
+            <div class="tech-group">
+              <h4>Databáze</h4>
+              <ul>
+                <li>PostgreSQL</li>
+                <li>SQLite</li>
+                <li>GORM</li>
+              </ul>
+            </div>
+
+            <div class="tech-group">
+              <h4>Nástroje & nasazení</h4>
+              <ul>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Docker</li>
+                <li>Linux</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Jazyky</h3>
+            <ul>
+              <li>Čeština (rodilý mluvčí)</li>
+              <li>Angličtina</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section animate-left">
+        <h2>Certifikace</h2>
+        <div class="badges">
+          <Badge
+            image={ITE}
+            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
+            alt="IT Essentials Credly badge"
+          />
+          <Badge
+            image={I2CS}
+            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
+            alt="Introduction to Cybersecurity Credly badge"
+          />
+        </div>
+      </div>
+
+      <div class="section animate-right">
+        <h2>Co dál?</h2>
+        <p>
+          Pořád se chci učit nové věci a pouštět se do zajímavých výzev. Těším
+          se, kam mě programování a další zkušenosti ještě posunou.
+        </p>
+        <div class="cta-container">
+          <Link href="/cs/projects" type="primary">Mrkni na moje projekty</Link>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

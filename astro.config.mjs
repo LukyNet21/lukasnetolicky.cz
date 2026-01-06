@@ -7,4 +7,15 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: "https://lukasnetolicky.cz",
   integrations: [sitemap()],
+  output: "static",
+  i18n: {
+    locales: ["en", "cs"],
+    defaultLocale: "en",
+    fallback: {
+      cs: "en",
+    },
+    routing: {
+      fallbackType: "rewrite",
+    }
+  }
 });

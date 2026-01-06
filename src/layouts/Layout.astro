@@ -10,14 +10,14 @@ interface Props {
   image?: string;
 }
 
-const { title = "Lukáš Netolický", description, image } = Astro.props as Props;
+const { title = "Lukáš Netolický", description, image } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 
 const twitterCardType = image ? "summary_large_image" : "summary";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

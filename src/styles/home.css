@@ -1,0 +1,116 @@
+/* Hero Section */
+.hero {
+  padding: var(--space-3xl) 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: var(--font-5xl);
+  margin-bottom: var(--space-md);
+}
+
+.hero-subtitle {
+  font-size: var(--font-2xl);
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-medium);
+}
+
+.hero-description {
+  font-size: var(--font-lg);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+/* About Section */
+.home-section {
+  padding: var(--space-3xl) 0;
+}
+
+.home-section h2 {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.about {
+  background-color: var(--bg);
+}
+
+.about-content {
+  max-width: 810px;
+  margin: 0 auto;
+}
+
+.about-content p {
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+/* Technologies Section */
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-xl);
+  margin: 0 auto;
+}
+
+.tech-category h3 {
+  margin-bottom: var(--space-md);
+  color: var(--secondary);
+  text-align: center;
+}
+
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.tech-list li {
+  background: var(--gradient);
+  border: 1px solid var(--bg-light);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 20px;
+  font-size: var(--font-sm);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.tech-list li:hover {
+  background: var(--gradient-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: var(--font-4xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-xl);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .tech-categories {
+    grid-template-columns: 1fr;
+  }
+}
