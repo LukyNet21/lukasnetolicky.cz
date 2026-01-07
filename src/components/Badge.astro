@@ -25,10 +25,10 @@ const { image, href, alt } = Astro.props;
   .image {
     width: 230px;
     height: 230px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease-in-out;
   }
 
   .image:hover {
-    transform: scale(1.08) rotate(-2deg);
+    transform: scale(1.05) rotate(-2deg);
   }
 </style>

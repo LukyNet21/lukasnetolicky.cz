@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PostsCard from "../../components/PostCard.astro";
+import "../../styles/projects.css"
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog", ({ data }) => {
@@ -45,18 +46,3 @@ const sortedPosts = posts.sort((a, b) => {
     </section>
   </div>
 </Layout>
-
-<style>
-  .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-xl);
-    margin-bottom: var(--space-3xl);
-  }
-
-  @media (max-width: 768px) {
-    .projects-container {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

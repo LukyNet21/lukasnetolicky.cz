@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Link from "../../components/Link.astro";
 import "../../styles/home.css";
-import { homeTechnologies } from "../../constants.ts";
+import { technologies, techCategories } from "../../constants.ts";
 ---
 
 <Layout
@@ -50,36 +50,28 @@ import { homeTechnologies } from "../../constants.ts";
   <section class="container home-section technologies">
     <h2>Technologie, které používám</h2>
     <div class="tech-categories">
-      <div class="tech-category">
-        <h3>Frontend</h3>
-        <ul class="tech-list">
-          {
-            homeTechnologies
-              .filter((tech) => tech.category === "frontend")
-              .map((tech) => <li>{tech.name}</li>)
-          }
-        </ul>
-      </div>
-      <div class="tech-category">
-        <h3>Backend</h3>
-        <ul class="tech-list">
-          {
-            homeTechnologies
-              .filter((tech) => tech.category === "backend")
-              .map((tech) => <li>{tech.name}</li>)
-          }
-        </ul>
-      </div>
-      <div class="tech-category">
-        <h3>Jiné nástroje</h3>
-        <ul class="tech-list">
-          {
-            homeTechnologies
-              .filter((tech) => tech.category === "tools")
-              .map((tech) => <li>{tech.name}</li>)
-          }
-        </ul>
-      </div>
+      {
+        techCategories.map((category) => (
+          <div class="tech-category">
+            <h3>{category.title_cs}</h3>
+            <ul class="tech-list">
+              {technologies
+                .filter((tech) => tech.category === category.key)
+                .map((tech) => (
+                  <li aria-label={`${tech.name} ikona`}>
+                    <tech.icon
+                      class="tech-icon"
+                      class:list={tech.lightModeIcon && "tech-icon-dark"}
+                    />
+                    {tech.lightModeIcon && (
+                      <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                    )}
+                  </li>
+                ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
   </section>
 </Layout>

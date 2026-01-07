@@ -82,11 +82,14 @@
 .tech-list li {
   background: var(--gradient);
   border: 1px solid var(--bg-light);
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border-radius: 20px;
   font-size: var(--font-sm);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .tech-list li:hover {
@@ -95,7 +98,18 @@
   transform: translateY(-3px);
 }
 
-/* Responsive Adjustments */
+.tech-icon {
+  height: 2rem;
+}
+
+body:not(.light) .tech-icon-light {
+  display: none;
+}
+
+body.light .tech-icon-dark {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: var(--font-4xl);

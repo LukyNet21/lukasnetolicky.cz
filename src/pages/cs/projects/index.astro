@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
-import "../../styles/projects.css";
+import Layout from "../../../layouts/Layout.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+import "../../../styles/projects.css";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects", ({ data }) => {
@@ -22,13 +22,13 @@ const sortedProjects = projects.sort((a, b) => {
 ---
 
 <Layout
-  title="Projects | Lukáš Netolický"
-  description="Explore my projects and coding journey."
+  title="Projekty | Lukáš Netolický"
+  description="Mrkněte na moje projekty a to, na čem zrovna pracuju."
 >
   <div class="container">
     <section class="page-header">
-      <h1>My <span class="highlight">Projects</span></h1>
-      <p class="subtitle">Here's what I've been working on</p>
+      <h1>Moje <span class="highlight">Projekty</span></h1>
+      <p class="subtitle">Zde naleznete projekty na kterých jsem pracoval</p>
     </section>
 
     <section class="projects-container">

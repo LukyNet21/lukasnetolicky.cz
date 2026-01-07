@@ -2,17 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Badge from "../components/Badge.astro";
-import "../styles/about.css"
+import "../styles/about.css";
 
 import ITE from "../assets/images/about/ITE.png";
 import I2CS from "../assets/images/about/I2CS.png";
+import { technologies, techCategories } from "../constants";
 ---
 
 <Layout
   title="About Me | Lukáš Netolický"
   description="Learn more about my background, interests, and journey as a student developer."
 >
-  <div class="container">
+  <div>
     <section class="page-header">
       <h1>About <span class="highlight">Me</span></h1>
       <p class="subtitle">My coding journey</p>
@@ -26,9 +27,9 @@ import I2CS from "../assets/images/about/I2CS.png";
             href="https://www.delta-skola.cz/"
             target="_blank"
             rel="noopener noreferrer">DELTA IT High School</a
-          > in the Czech Republic, where I learn all sorts of tech skills. When
-          I'm not in class, I like to work on personal coding projects and learn
-          new technologies that help me build useful solutions.
+          > in the Czech Republic, where I learn all sorts of tech skills. When I'm
+          not in class, I like to work on personal coding projects and learn new
+          technologies that help me build useful solutions.
         </p>
       </div>
 
@@ -49,88 +50,108 @@ import I2CS from "../assets/images/about/I2CS.png";
           way as needed to turn my ideas into reality.
         </p>
       </div>
+    </section>
 
-      <div class="section">
+    <section class="section skills-section">
+      <div class="about-content">
         <h2>Skills</h2>
-        <div class="skills-container">
-          <div class="skill-category">
-            <h3>Technologies I Use</h3>
-            <div class="tech-group">
-              <h4>Frontend</h4>
-              <ul>
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>JavaScript</li>
-                <li>HTML/CSS</li>
-                <li>Tailwind CSS</li>
-                <li>Astro</li>
-                <li>SASS/SCSS</li>
-              </ul>
-            </div>
-            <div class="tech-group">
-              <h4>Backend</h4>
-              <ul>
-                <li>Go</li>
-                <li>Node.js</li>
-                <li>Next.js</li>
-                <li>RESTful APIs</li>
-              </ul>
-            </div>
-            <div class="tech-group">
-              <h4>Databases</h4>
-              <ul>
-                <li>PostgreSQL</li>
-                <li>SQLite</li>
-                <li>GORM</li>
-              </ul>
-            </div>
-            <div class="tech-group">
-              <h4>Tools & Deployment</h4>
-              <ul>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Docker</li>
-                <li>Linux</li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="skill-category">
-            <h3>Languages I Speak</h3>
-            <ul>
-              <li>Czech (Native)</li>
-              <li>English</li>
-            </ul>
-          </div>
+        <div>
+          <h3>Technologies I Use</h3>
+          {
+            techCategories.map((cat) => (
+              <div class="tech-group">
+                <h4>{cat.title}</h4>
+
+                <ul class="icon-grid" data-category={cat.key}>
+                  {technologies
+                    .filter((t) => t.category === cat.key)
+                    .map((tech) => (
+                      <li aria-label={`${tech.name} icon`}>
+                        {tech.url ? (
+                          <a
+                            class="icon-card item"
+                            href={tech.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${tech.name} website`}
+                            title={tech.name}
+                          >
+                            <tech.icon
+                              class="tech-icon"
+                              class:list={
+                                tech.lightModeIcon && "tech-icon-dark"
+                              }
+                            />
+                            {tech.lightModeIcon && (
+                              <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                            )}
+
+                            <span>{tech.name}</span>
+                          </a>
+                        ) : (
+                          <div class="icon-card item" title={tech.name}>
+                            <tech.icon
+                              class="tech-icon"
+                              class:list={
+                                tech.lightModeIcon && "tech-icon-dark"
+                              }
+                            />
+                            {tech.lightModeIcon && (
+                              <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                            )}
+
+                            <span>{tech.name}</span>
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="skill-category">
+          <h3>Languages I Speak</h3>
+
+          <ul class="language-list">
+            <li class="language-item item">
+              Czech
+              <span class="language-level">(Native)</span>
+            </li>
+
+            <li class="language-item item">English</li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <div class="section animate-left">
-        <h2>Certifications</h2>
-        <div class="badges">
-          <Badge
-            image={ITE}
-            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
-            alt="IT Essentials Credly badge"
-          />
-          <Badge
-            image={I2CS}
-            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
-            alt="Introduction to Cybersecurity Credly badge"
-          />
-        </div>
+    <section class="about-content section">
+      <h2>Certifications</h2>
+      <div class="badges">
+        <Badge
+          image={ITE}
+          href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
+          alt="IT Essentials Credly badge"
+        />
+        <Badge
+          image={I2CS}
+          href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
+          alt="Introduction to Cybersecurity Credly badge"
+        />
       </div>
+    </section>
 
-      <div class="section animate-right">
-        <h2>What's Next</h2>
-        <p>
-          I'm always looking to learn new things and tackle interesting
-          challenges. Excited to keep growing my skills and exploring different
-          areas of coding to see where it all takes me!
-        </p>
-        <div class="cta-container">
-          <Link href="/projects" type="primary">See What I've Built</Link>
-        </div>
+    <section class="about-content section">
+      <h2>What's Next</h2>
+      <p>
+        I'm always looking to learn new things and tackle interesting
+        challenges. Excited to keep growing my skills and exploring different
+        areas of coding to see where it all takes me!
+      </p>
+      <div class="cta-container">
+        <Link href="/projects" type="primary">See What I've Built</Link>
       </div>
     </section>
   </div>
