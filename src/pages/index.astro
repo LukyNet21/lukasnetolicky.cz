@@ -60,13 +60,27 @@ import { technologies, techCategories } from "../constants.ts";
               {technologies
                 .filter((tech) => tech.category === category.key)
                 .map((tech) => (
-                  <li aria-label={`${tech.name} icon`}>
-                    <tech.icon
-                      class="tech-icon"
-                      class:list={tech.lightModeIcon && "tech-icon-dark"}
-                    />
-                    {tech.lightModeIcon && (
-                      <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                  <li aria-label={`${tech.name} ikona`}>
+                    {tech.url ? (
+                      <a href={tech.url} class="list-item">
+                        <tech.icon
+                          class="tech-icon"
+                          class:list={tech.lightModeIcon && "tech-icon-dark"}
+                        />
+                        {tech.lightModeIcon && (
+                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                        )}
+                      </a>
+                    ) : (
+                      <div class="list-item">
+                        <tech.icon
+                          class="tech-icon"
+                          class:list={tech.lightModeIcon && "tech-icon-dark"}
+                        />
+                        {tech.lightModeIcon && (
+                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                        )}
+                      </div>
                     )}
                   </li>
                 ))}

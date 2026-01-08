@@ -29,7 +29,7 @@ import { technologies, techCategories } from "../../constants.ts";
   <!-- About Section -->
   <section class="home-section about">
     <div class="container">
-      <h2>O mě</h2>
+      <h2>O mně</h2>
       <div class="about-content">
         <p>
           Jsem středoškolák, kterého baví programování, IT a jiné technologie.
@@ -59,12 +59,26 @@ import { technologies, techCategories } from "../../constants.ts";
                 .filter((tech) => tech.category === category.key)
                 .map((tech) => (
                   <li aria-label={`${tech.name} ikona`}>
-                    <tech.icon
-                      class="tech-icon"
-                      class:list={tech.lightModeIcon && "tech-icon-dark"}
-                    />
-                    {tech.lightModeIcon && (
-                      <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                    {tech.url ? (
+                      <a href={tech.url} class="list-item">
+                        <tech.icon
+                          class="tech-icon"
+                          class:list={tech.lightModeIcon && "tech-icon-dark"}
+                        />
+                        {tech.lightModeIcon && (
+                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                        )}
+                      </a>
+                    ) : (
+                      <div class="list-item">
+                        <tech.icon
+                          class="tech-icon"
+                          class:list={tech.lightModeIcon && "tech-icon-dark"}
+                        />
+                        {tech.lightModeIcon && (
+                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                        )}
+                      </div>
                     )}
                   </li>
                 ))}

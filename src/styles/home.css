@@ -79,7 +79,7 @@
   justify-content: center;
 }
 
-.tech-list li {
+.tech-list .list-item {
   background: var(--gradient);
   border: 1px solid var(--bg-light);
   padding: var(--space-md) var(--space-lg);
@@ -92,7 +92,7 @@
   align-items: center;
 }
 
-.tech-list li:hover {
+.tech-list .list-item:hover {
   background: var(--gradient-hover);
   box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
