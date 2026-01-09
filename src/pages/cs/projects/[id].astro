@@ -1,0 +1,121 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import "../../../styles/post.css";
+import "../../../styles/technologies.css";
+import Link from "../../../components/Link.astro";
+import TableOfContents from "../../../components/TableOfContents.astro";
+import Date from "../../../components/Date.astro";
+import { Image, getImage } from "astro:assets";
+import { normalizeTech } from "../../../utils/usils";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("projects");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const coverOptimized = await getImage({
+  src: post.data.cover,
+  width: 1200,
+  height: 630,
+  format: "webp",
+  quality: 70,
+  fit: "cover",
+});
+
+const imageUrl = new URL(coverOptimized.src, Astro.site).toString();
+const { Content, headings } = await render(post);
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={imageUrl}
+>
+  <div class="container">
+    <div class="post-header">
+      <h1 transition:name={`project-title-${post.id}`}>{post.data.title}</h1>
+      {
+        post.data.published && (
+          <div
+            class="post-date"
+            transition:name={`project-published-${post.id}`}
+          >
+            Published: <Date date={post.data.published} />
+          </div>
+        )
+      }
+      {
+        post.data.technologies && (
+          <div class="post-technologies">
+            {post.data.technologies.map((tech) => (
+              <span
+                class={`technology ${normalizeTech(tech)}`}
+                transition:name={`project-technology-${post.id}-${normalizeTech(tech)}`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+
+    <Image
+      transition:name={`project-cover-${post.id}`}
+      src={post.data.cover}
+      alt={post.data.coverAlt}
+      class="post-image"
+      format="avif"
+      width={1100}
+      height={550}
+      quality={70}
+    />
+
+    <div class="post-links" transition:name={`project-links-${post.id}`}>
+      {
+        post.data.demo && (
+          <Link
+            href={post.data.demo}
+            target="_blank"
+            type="primary"
+            color="primary"
+          >
+            Live Demo
+          </Link>
+        )
+      }
+      {
+        post.data.source && (
+          <Link
+            href={post.data.source}
+            target="_blank"
+            type="primary"
+            color="secondary"
+          >
+            Source Code
+          </Link>
+        )
+      }
+    </div>
+
+    <div class="post-content-wrapper">
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+
+      <div class="post-content">
+        <Content />
+      </div>
+    </div>
+
+    <div class="back-link">
+      <Link href="/cs/projects" type="primary" size="medium" color="primary">
+        ← Zpět na projekty
+      </Link>
+    </div>
+  </div>
+</Layout>

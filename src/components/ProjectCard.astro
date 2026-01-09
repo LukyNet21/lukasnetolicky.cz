@@ -1,11 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import "../styles/card.css"
+import "../styles/card.css";
 import "../styles/technologies.css";
 import Date from "./Date.astro";
 import { Image } from "astro:assets";
 import Link from "./Link.astro";
 import { normalizeTech } from "../utils/usils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const {
   data: {
@@ -64,7 +65,14 @@ const {
       }
     </p>
     <div class="links" transition:name={`project-links-${id}`}>
-      <Link href={`/projects/${id}`} size="small" type="primary">
+      <Link
+        href={getRelativeLocaleUrl(
+          Astro.currentLocale || "en",
+          `/projects/${id}`,
+        )}
+        size="small"
+        type="primary"
+      >
         View Details
       </Link>
       {
