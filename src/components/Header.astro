@@ -15,7 +15,11 @@ const currentPath = Astro.url.pathname;
 
 <header class="header">
   <div class="container header-content">
-    <a href={getRelativeLocaleUrl(Astro.currentLocale || "en")} aria-label="Lukas Netolicky" class="site-name">
+    <a
+      href={getRelativeLocaleUrl(Astro.currentLocale || "en")}
+      aria-label="Lukas Netolicky"
+      class="site-name"
+    >
       Lukáš Netolický
     </a>
 

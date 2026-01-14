@@ -14,21 +14,22 @@ const label =
   currentLang === "cz" ? "Přepnout do Angličtiny" : "Switch to Czech";
 ---
 
-<a href={switchUrl}>
-  <button aria-label={label}>
-    <Icon width="24" height="24" />
-  </button>
+<a href={switchUrl} class="language-switcher" aria-label={label}>
+  <Icon width="24" height="24" />
 </a>
 
 <style>
-  button {
+  .language-switcher {
     background: none;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  button:hover {
+  .language-switcher:hover {
     transform: scale(1.2);
   }
 </style>
