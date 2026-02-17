@@ -34,23 +34,26 @@ const filteredHeadings = headings.filter(
 <script>
   document.addEventListener("astro:page-load", () => {
     const tocLinks = document.querySelectorAll(".toc-link");
-    tocLinks.forEach(link => {
+    tocLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        
+
         const targetId = link.getAttribute("href")?.substring(1);
         if (!targetId) return;
-        
+
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
-        
+
         const headerOffset = 100;
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
+
+        history.pushState(null, "", `#${targetId}`);
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       });
     });
@@ -114,7 +117,7 @@ const filteredHeadings = headings.filter(
     margin-left: calc(var(--space-md) * 2);
     font-size: 0.9em;
   }
-  
+
   .depth-4 {
     margin-left: calc(var(--space-md) * 3);
     font-size: 0.85em;
