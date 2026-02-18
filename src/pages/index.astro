@@ -12,13 +12,14 @@ import { technologies, techCategories } from "../constants.ts";
   <section class="container">
     <div class="hero">
       <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
-      <p class="hero-subtitle">Student Developer</p>
+      <p class="hero-subtitle">
+        Student Developer focused on building web apps
+      </p>
       <p class="hero-description">
-        I'm a 17-year-old high school student who loves coding and tech stuff. I
-        enjoy learning new things and building projects that challenge my
-        skills. I'm always looking for new opportunities to grow and improve my
-        skills. Whether it's through school or my personal side projects, I'm
-        committed to pushing myself to learn and grow!
+        I'm a student developer who enjoys building fast, functional
+        applications using modern tools. I like breaking down complex problems
+        and turning them into simple, usable solutions. Right now, I'm exploring
+        modern web development and building projects to improve my skills.
       </p>
       <div class="hero-buttons">
         <Link href="/projects" type="primary">Check Out My Projects</Link>
@@ -33,24 +34,27 @@ import { technologies, techCategories } from "../constants.ts";
       <h2>About Me</h2>
       <div class="about-content">
         <p>
-          I'm a high school student that likes coding. I love figuring out how
-          stuff works and learning when things break along the way. Playing with
-          different technologies, libraries, and programming languages is
-          something I really enjoy!
+          I'm a student developer who enjoys solving problems and building
+          projects that turn ideas into real applications people can use.
+          Building projects helps me understand how things really work, and
+          that's what keeps me motivated.
         </p>
         <p>
-          My projects range from web apps to all sorts of coding experiments.
-          I'm all about hands-on learning experience and enjoy going into
-          different challenges that level up my skills and help me solve cool
-          problems.
+          I'm especially interested in web development, performance, and writing
+          clean, maintainable code. I enjoy exploring new tools and technologies
+          that help me build better software. Most of my projects use React on
+          the frontend, while on the backend I typically work with Go or Hono.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Technologies Section -->
-  <section class="container home-section technologies">
+  <section class="container home-section">
     <h2>Technologies I Work With</h2>
+    <p class="home-section-description">
+      Here are some of the tools and technologies I use when building projects.
+    </p>
     <div class="tech-categories">
       {
         techCategories.map((category) => (
@@ -58,11 +62,19 @@ import { technologies, techCategories } from "../constants.ts";
             <h3>{category.title}</h3>
             <ul class="tech-list">
               {technologies
-                .filter((tech) => tech.category === category.key)
+                .filter(
+                  (tech) => tech.category === category.key && tech.homePage,
+                )
                 .map((tech) => (
-                  <li aria-label={`${tech.name} ikona`}>
+                  <li>
                     {tech.url ? (
-                      <a href={tech.url} class="list-item">
+                      <a
+                        href={tech.url}
+                        class="list-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={tech.name}
+                      >
                         <tech.icon
                           class="tech-icon"
                           class:list={tech.lightModeIcon && "tech-icon-dark"}
@@ -72,7 +84,7 @@ import { technologies, techCategories } from "../constants.ts";
                         )}
                       </a>
                     ) : (
-                      <div class="list-item">
+                      <div class="list-item" aria-label={tech.name}>
                         <tech.icon
                           class="tech-icon"
                           class:list={tech.lightModeIcon && "tech-icon-dark"}

@@ -23,31 +23,32 @@ import { technologies, techCategories } from "../constants";
       <div class="section">
         <h2>Who Am I?</h2>
         <p>
-          Hey! I'm a 17-year-old student at <a
-            href="https://www.delta-skola.cz/"
-            target="_blank"
-            rel="noopener noreferrer">DELTA IT High School</a
-          > in the Czech Republic, where I learn all sorts of tech skills. When I'm
-          not in class, I like to work on personal coding projects and learn new
-          technologies that help me build useful solutions.
+          Hey! I'm a full-stack student developer based in the Czech Republic
+          who focuses on full-stack web development. I build web applications
+          using React or Astro on the frontend and Go or Hono on the backend for
+          fast, reliable APIs.
+        </p>
+        <p>
+          I enjoy solving real problems and turning them into tools people can
+          actually use. I'm always exploring new technologies that help me build
+          better, cleaner, and more efficient solutions.
         </p>
       </div>
 
       <div class="section">
         <h2>How I Got Started</h2>
         <p>
-          I got into coding back in 2020 with some small projects that
-          interested me. What started as just playing around quickly turned into
-          a bigger hobby as I discovered I could create software that I actually
-          used but couldn't find anywhere else. The feeling of building
-          something that solves a real problem is what keeps me going!
+          I got into coding around 2020 by experimenting with small projects and
+          game modifications, especially building plugins for games like
+          Minecraft. At first it was just curiosity and fun, but once I realized
+          I could create things that actually worked and solved problems, that’s
+          when I became genuinely interested in programming.
         </p>
         <p>
-          These days, I mostly build web apps. I like to create solutions for
-          problems I face - if I need something that doesn't exist yet, I'll
-          just build it myself. This hands-on approach is how I learn best,
-          picking up different technologies, languages and frameworks along the
-          way as needed to turn my ideas into reality.
+          Since then I've shifted more into web development, building full-stack
+          applications and learning whatever technologies a project requires. I
+          enjoy figuring things out as I go, turning ideas into real, working
+          software.
         </p>
       </div>
     </section>
@@ -58,6 +59,10 @@ import { technologies, techCategories } from "../constants";
 
         <div>
           <h3>Technologies I Use</h3>
+          <p class="section-description">
+            These are the tools and technologies I use to build my projects. I
+            am constantly learning and exploring new ones to improve my skills.
+          </p>
           {
             techCategories.map((cat) => (
               <div class="tech-group">
@@ -71,9 +76,10 @@ import { technologies, techCategories } from "../constants";
                         {tech.url ? (
                           <a
                             class="icon-card item"
+                            class:list={{ featured: tech.featured }}
                             href={tech.url}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             aria-label={`Open ${tech.name} website`}
                             title={tech.name}
                           >
@@ -90,7 +96,11 @@ import { technologies, techCategories } from "../constants";
                             <span>{tech.name}</span>
                           </a>
                         ) : (
-                          <div class="icon-card item" title={tech.name}>
+                          <div
+                            class="icon-card item"
+                            class:list={{ featured: tech.featured }}
+                            title={tech.name}
+                          >
                             <tech.icon
                               class="tech-icon"
                               class:list={
@@ -112,7 +122,7 @@ import { technologies, techCategories } from "../constants";
           }
         </div>
 
-        <div class="skill-category">
+        <div>
           <h3>Languages I Speak</h3>
 
           <ul class="language-list">
@@ -127,31 +137,61 @@ import { technologies, techCategories } from "../constants";
       </div>
     </section>
 
-    <section class="about-content section">
-      <h2>Certifications</h2>
-      <div class="badges">
-        <Badge
-          image={ITE}
-          href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
-          alt="IT Essentials Credly badge"
-        />
-        <Badge
-          image={I2CS}
-          href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
-          alt="Introduction to Cybersecurity Credly badge"
-        />
+    <section class="section about-content">
+      <h2>Education</h2>
+
+      <div class="education-item">
+        <a
+          href="https://www.delta-skola.cz/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h3>DELTA High School</h3>
+        </a>
+        <p class="education-date">2024 - Present</p>
+        <p class="education-desc">
+          High school focused on programming, software development, and modern
+          technologies. Enrolled in <a
+            href="https://www.delta-skola.cz/talentovy-program-delta-topgun"
+            target="_blank"
+            rel="noopener noreferrer">TopGun program</a
+          >, for people with IT skills focused on university-level computer
+          science topics and practical workshops.
+        </p>
+      </div>
+    </section>
+
+    <section class="section badges-section">
+      <div class="about-content">
+        <div class="certifications">
+          <h2>Certifications</h2>
+        </div>
+        <div class="badges">
+          <Badge
+            image={ITE}
+            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
+            alt="IT Essentials Credly badge"
+          />
+          <Badge
+            image={I2CS}
+            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
+            alt="Introduction to Cybersecurity Credly badge"
+          />
+        </div>
       </div>
     </section>
 
     <section class="about-content section">
       <h2>What's Next</h2>
       <p>
-        I'm always looking to learn new things and tackle interesting
-        challenges. Excited to keep growing my skills and exploring different
-        areas of coding to see where it all takes me!
+        Right now I'm focused on deepening my skills and building more advanced
+        applications that combine modern frontend frameworks with efficient
+        backend systems. I'm especially interested in projects involving
+        performance, and real-world problem solving.
       </p>
+
       <div class="cta-container">
-        <Link href="/projects" type="primary">See What I've Built</Link>
+        <Link href="/projects" type="primary">View My Projects</Link>
       </div>
     </section>
   </div>

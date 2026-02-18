@@ -42,6 +42,20 @@
   border-color: var(--primary);
 }
 
+.item.featured {
+  border-color: var(--primary);
+  background: linear-gradient(145deg,
+      var(--bg-light) 0%,
+      oklch(from var(--primary) l c h / 0.05) 100%);
+  box-shadow: 0 0 15px oklch(from var(--primary) l c h / 0.1);
+}
+
+.section-description {
+  margin-bottom: var(--space-lg);
+  color: var(--text-muted);
+  max-width: 650px;
+}
+
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -104,6 +118,19 @@
   color: var(--text);
 }
 
+.education-item h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.education-date {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+.education-desc {
+  font-size: var(--font-sm);
+}
+
 body:not(.light) .tech-icon-light {
   display: none;
 }
@@ -137,6 +164,25 @@ body.light .tech-icon-dark {
 .language-level {
   font-size: var(--font-xs);
   color: var(--text-muted);
+}
+
+.certifications {
+  margin-bottom: var(--space-xl);
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.certifications h2 {
+  margin-bottom: var(--space-xs);
+  border-bottom: none;
+}
+
+.certifications p {
+  color: var(--text-muted);
+}
+
+.badges-section {
+  padding: var(--space-3xl) var(--space-md);
+  background-color: var(--bg);
 }
 
 .badges {
