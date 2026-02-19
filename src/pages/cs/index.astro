@@ -12,12 +12,14 @@ import { technologies, techCategories } from "../../constants.ts";
   <section class="container">
     <div class="hero">
       <h1>Ahoj! Jsem <span class="highlight">Lukáš</span></h1>
-      <p class="hero-subtitle">Student IT</p>
+      <p class="hero-subtitle">
+        Student IT zaměřený na vývoj webových aplikací
+      </p>
       <p class="hero-description">
-        Je mi 17 let a studuju na střední škole. Baví mě programování a
-        technologie obecně. Rád se učím nové věci a tvořím projekty, na kterých
-        si zkouším a zlepšuju svoje technické dovednosti. Pořád se snažím
-        posouvat dál a učit se nové věci, ať už ve škole nebo ve volném čase.
+        Jsem student IT, rád vytvářím rychlé a funkční aplikace. Baví mě
+        rozkládat složité problémy na jednodušší části a tvořit praktická a
+        jednoduchá řešení. Momentálně se věnuji převážně webovému vývoji a
+        tvořím projekty, abych si zlepšoval své dovednosti.
       </p>
       <div class="hero-buttons">
         <Link href="/cs/projects" type="primary">Moje projekty</Link>
@@ -32,35 +34,50 @@ import { technologies, techCategories } from "../../constants.ts";
       <h2>O mně</h2>
       <div class="about-content">
         <p>
-          Jsem středoškolák, kterého baví programování, IT a jiné technologie.
-          Rád zjišťuju, jak věci fungují, a učím se z chyb, když se něco pokazí.
-          Hodně mě baví zkoušet různé technologie, knihovny a programovací
-          jazyky.
+          Jsem student IT, rád řeším problémy a vytvářím projekty, které
+          proměňují nápady ve skutečné aplikace, které mohou lidé používat.
+          Tvorba projektů mi pomáhá pochopit, jak věci skutečně fungují, a právě
+          to mě motivuje
         </p>
         <p>
-          Převážně tvořím webové aplikace, ale baví mě i různé jiné
-          programátorské projekty. Rád učím praxí a pouštím do nových výzev,
-          které mě posouvají dál a pomáhají mi řešit zajímavé problémy.
+          V dnešní době se především zajímám o webový vývoj a psaní čistého,
+          udržovatelného kódu. Rád zkoumám nové nástroje a technologie, které mi
+          pomáhají vytvářet lepší software. Většina mých projektů používá React
+          na frontendu, zatímco na backendu obvykle píšu v Go nebo v TypeScriptu
+          s použitím Hono frameworku.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Technologies Section -->
-  <section class="container home-section technologies">
+  <section class="container home-section">
     <h2>Technologie, které používám</h2>
+    <p class="home-section-description">
+      Toto jsou nástroje a technologie, které momentálně používám k vytváření
+      svých projektů. Neustále se učím a zkoumám nové, abych zlepšoval své
+      dovednosti.
+    </p>
     <div class="tech-categories">
       {
         techCategories.map((category) => (
           <div class="tech-category">
-            <h3>{category.title_cs}</h3>
+            <h3>{category.title}</h3>
             <ul class="tech-list">
               {technologies
-                .filter((tech) => tech.category === category.key)
+                .filter(
+                  (tech) => tech.category === category.key && tech.homePage,
+                )
                 .map((tech) => (
-                  <li aria-label={`${tech.name} ikona`}>
+                  <li>
                     {tech.url ? (
-                      <a href={tech.url} class="list-item">
+                      <a
+                        href={tech.url}
+                        class="list-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={tech.name}
+                      >
                         <tech.icon
                           class="tech-icon"
                           class:list={tech.lightModeIcon && "tech-icon-dark"}
@@ -70,7 +87,7 @@ import { technologies, techCategories } from "../../constants.ts";
                         )}
                       </a>
                     ) : (
-                      <div class="list-item">
+                      <div class="list-item" aria-label={tech.name}>
                         <tech.icon
                           class="tech-icon"
                           class:list={tech.lightModeIcon && "tech-icon-dark"}
