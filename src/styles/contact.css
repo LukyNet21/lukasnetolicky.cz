@@ -1,0 +1,136 @@
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--space-2xl);
+}
+
+.contact-info h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.info-description {
+  color: var(--text-muted);
+  font-size: var(--font-lg);
+  margin-bottom: var(--space-md);
+}
+
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.info-list li {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text-muted);
+}
+
+.info-label {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: var(--font-lg);
+  color: var(--text);
+}
+
+.timezone {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  font-weight: var(--font-medium);
+}
+
+.social-links-section {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-muted);
+}
+
+.social-links-section h3 {
+  font-size: var(--font-lg);
+  margin-bottom: var(--space-md);
+}
+
+/* Form Styles */
+.contact-form {
+  background: var(--bg);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--space-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  padding: var(--space-md) 0;
+}
+
+.form-group label {
+  padding-bottom: var(--space-xs);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-md);
+  border-radius: var(--space-xs);
+  border: 1px solid var(--border-muted);
+  background: var(--bg-dark);
+  color: var(--text);
+  font-family: inherit;
+  font-size: var(--font-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: var(--bg-light);
+  border: none;
+  border-radius: var(--space-xs);
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-md);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}

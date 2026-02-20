@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/contact.css";
+import MailIcon from "../../assets/icons/mail.svg";
+import LocationIcon from "../../assets/icons/map-pin.svg";
+import ClockIcon from "../../assets/icons/clock.svg";
+import SocialIcons from "../../components/SocialIcons.astro";
+---
+
+<Layout
+  title="Kontakt | Lukáš Netolický"
+  description="Spojte se se mnou prostřednictvím e-mailu nebo sociálních sítí."
+>
+  <div class="container">
+    <section class="page-header">
+      <h1>Kontaktujte <span class="highlight">mě</span></h1>
+      <p class="subtitle">Pojďme spolupracovat</p>
+    </section>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Napište mi</h2>
+        <p class="info-description">
+          Jsem otevřený novým příležitostem a zajímavým projektům. Ozvěte se mi!
+        </p>
+
+        <ul class="info-list">
+          <li>
+            <div class="info-icon">
+              <MailIcon />
+            </div>
+            <div>
+              <p class="info-label">E-mail</p>
+              <a href="mailto:mail@lukasnetolicky.cz" class="info-value"
+                >mail@lukasnetolicky.cz</a
+              >
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">
+              <LocationIcon />
+            </div>
+            <div>
+              <p class="info-label">Lokalita</p>
+              <p class="info-value">Česká republika</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="social-links-section">
+          <h3>Najdete mě na</h3>
+          <SocialIcons socialLinksOnly />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/contact.css";
+import MailIcon from "../assets/icons/mail.svg";
+import LocationIcon from "../assets/icons/map-pin.svg";
+import ClockIcon from "../assets/icons/clock.svg";
+import SocialIcons from "../components/SocialIcons.astro";
+---
+
+<Layout
+  title="Contact Me | Lukáš Netolický"
+  description="Get in touch with me via email or social media."
+>
+  <div class="container">
+    <section class="page-header">
+      <h1>Contact <span class="highlight">Me</span></h1>
+      <p class="subtitle">Let's work together</p>
+    </section>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p class="info-description">
+          I'm open for new opportunities or interesting projects. Connect with
+          me!
+        </p>
+
+        <ul class="info-list">
+          <li>
+            <div class="info-icon">
+              <MailIcon />
+            </div>
+            <div>
+              <p class="info-label">Email</p>
+              <a href="mailto:mail@lukasnetolicky.cz" class="info-value"
+                >mail@lukasnetolicky.cz</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <div class="info-icon">
+              <LocationIcon />
+            </div>
+            <div>
+              <p class="info-label">Location</p>
+              <p class="info-value">Czech Republic</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="info-icon">
+              <ClockIcon />
+            </div>
+            <div>
+              <p class="info-label">Time in Prague</p>
+              <p class="info-value">
+                <span id="current-time">Loading...</span>
+                <span class="timezone">(UTC+1)</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="social-links-section">
+          <h3>Find me on</h3>
+          <SocialIcons socialLinksOnly />
+        </div>
+      </div>
+
+      <!-- <div class="contact-form">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="John Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="john@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              placeholder="How can I help you?"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div> -->
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const timeElement = document.getElementById("current-time");
+
+    function updateTime() {
+      if (!timeElement) return;
+
+      const now = new Date();
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: "Europe/Prague",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      };
+
+      const formatter = new Intl.DateTimeFormat([], options);
+      timeElement.textContent = formatter.format(now);
+    }
+
+    updateTime();
+    setInterval(updateTime, 10000);
+
+    // const form = document.getElementById("contact-form");
+    // if (form) {
+    //   form.addEventListener("submit", (e) => {
+    //     e.preventDefault();
+    //   });
+    // }
+  });
+</script>

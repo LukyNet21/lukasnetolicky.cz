@@ -44,3 +44,22 @@ export const technologies = [
   { name: "Docker", url: "https://www.docker.com/", category: "tools", icon: dockerIcon, homePage: true, featured: true },
   { name: "Cloudflare", url: "https://www.cloudflare.com/", category: "tools", icon: cloudflareIcon, homePage: true },
 ];
+
+import mail from "./assets/icons/mail.svg"
+import github from "./assets/icons/github.svg"
+
+export const socialLinks = [
+  {
+    name: "GitHub",
+    url: "https://github.com/LukyNet21",
+    icon: github,
+    iconName: "github"
+  },
+  {
+    name: "Mail",
+    url: "mailto:mail@lukasnetolicky.cz",
+    icon: mail,
+    iconName: "mail",
+    noSocialLink: true
+  },
+];
