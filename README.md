@@ -34,6 +34,7 @@ npm run build
 ```
 
 ## License
-[AGPL-3.0](LICENSE)
+This website was created by **Lukáš Netolický** and is licensed under the [AGPL-3.0](LICENSE).
 
-Created by Lukáš Netolický
+### Credits
+- **Icons:** [Lucide](https://lucide.dev/) - Copyright (c) 2013-2026 Cole Bemis & Lucide Contributors. Licensed under [ISC](https://github.com/lucide-icons/lucide/blob/main/LICENSE).

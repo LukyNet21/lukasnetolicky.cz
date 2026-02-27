@@ -35,6 +35,7 @@ export const technologies = [
 
   // Backend
   { name: "Go", url: "https://go.dev/", category: "backend", icon: goIcon, homePage: true, featured: true },
+  { name: "Golang", url: "https://go.dev/", category: "backend", icon: goIcon, homePage: true, featured: true },
   { name: "PostgreSQL", url: "https://www.postgresql.org/", category: "backend", icon: postgreIcon, homePage: true },
   { name: "Hono", url: "https://hono.dev/", category: "backend", icon: honoIcon, homePage: true },
   { name: "Next.js", url: "https://nextjs.org/", category: "backend", icon: nextjsIcon },

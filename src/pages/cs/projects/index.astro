@@ -34,8 +34,12 @@ const sortedProjects = projects.sort((a, b) => {
 
     <section class="projects-container">
       {
-        sortedProjects.map((project) => (
-          <ProjectCard data={project.data} id={project.id} />
+        sortedProjects.map((project, index) => (
+          <ProjectCard
+            {...project}
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : "auto"}
+          />
         ))
       }
     </section>

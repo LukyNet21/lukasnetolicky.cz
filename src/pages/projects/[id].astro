@@ -6,7 +6,7 @@ import "../../styles/technologies.css";
 import Link from "../../components/Link.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Date from "../../components/Date.astro";
-import { Image, getImage } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import { normalizeTech } from "../../utils/usils";
 
 export async function getStaticPaths() {
@@ -66,14 +66,14 @@ const { Content, headings } = await render(post);
       }
     </div>
 
-    <Image
+    <Picture
       transition:name={`project-cover-${post.id}`}
       src={post.data.cover}
       alt={post.data.coverAlt}
       class="post-image"
-      format="avif"
-      width={1100}
-      height={550}
+      formats={["avif", "webp"]}
+      widths={[360, 720, 1100, post.data.cover.width]}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 1100px"
       quality={70}
     />
 
@@ -119,4 +119,3 @@ const { Content, headings } = await render(post);
     </div>
   </div>
 </Layout>
-
