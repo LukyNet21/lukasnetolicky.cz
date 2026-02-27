@@ -58,3 +58,27 @@
   background-color: rgba(79, 129, 189, 0.15);
   color: #336699;
 }
+
+body.light .technology.html {
+  color: #c53d1b;
+}
+
+body.light .technology.javascript {
+  color: #8a7500;
+}
+
+body.light .technology.astro {
+  color: #d34d00;
+}
+
+body.light .technology.go {
+  color: #007694;
+}
+
+body.light .technology.react {
+  color: #0082a3;
+}
+
+body.light .technology.json {
+  color: #2a527c;
+}

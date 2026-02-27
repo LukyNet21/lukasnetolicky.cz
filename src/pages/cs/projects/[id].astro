@@ -72,9 +72,11 @@ const { Content, headings } = await render(post);
       alt={post.data.coverAlt}
       class="post-image"
       formats={["avif", "webp"]}
-      widths={[360, 720, 1100]}
+      widths={[360, 720, 1100, post.data.cover.width]}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 1100px"
       quality={70}
+      loading="eager"
+      fetchpriority="high"
     />
 
     <div class="post-links" transition:name={`project-links-${post.id}`}>
