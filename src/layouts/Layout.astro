@@ -74,3 +74,11 @@ const twitterCardType = image ? "summary_large_image" : "summary";
     <Footer />
   </body>
 </html>
+
+<script>
+  document.addEventListener("astro:before-swap", (e) => {
+    e.newDocument
+      .querySelector('script[src*="/cloudflare-static/email-decode"]')
+      ?.setAttribute("data-astro-rerun", "");
+  });
+</script>

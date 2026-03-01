@@ -58,6 +58,9 @@
 }
 
 /* Technologies Section */
+.home-section.container {
+  padding: var(--space-3xl) 0;
+}
 .home-section-description {
   text-align: center;
   margin-bottom: var(--space-xl);
