@@ -14,6 +14,8 @@ const { title = "Lukáš Netolický", description, image } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 
 const twitterCardType = image ? "summary_large_image" : "summary";
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -63,6 +65,8 @@ const twitterCardType = image ? "summary_large_image" : "summary";
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       />
     </noscript>
+
+    <link rel="canonical" href={canonical.toString()} />
 
     <ClientRouter />
   </head>
