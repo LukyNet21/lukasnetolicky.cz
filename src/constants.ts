@@ -47,6 +47,7 @@ export const technologies = [
 
 import mail from "./assets/icons/mail.svg"
 import github from "./assets/icons/github.svg"
+import youtube from "./assets/icons/youtube.svg"
 
 export const socialLinks = [
   {
@@ -54,6 +55,12 @@ export const socialLinks = [
     url: "https://github.com/LukyNet21",
     icon: github,
     iconName: "github"
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@lnetolicky",
+    icon: youtube,
+    iconName: "youtube"
   },
   {
     name: "Mail",
