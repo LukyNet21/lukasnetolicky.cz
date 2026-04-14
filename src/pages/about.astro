@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Badge from "../components/Badge.astro";
+import SectionDots from "../components/SectionDots.astro";
 import "../styles/about.css";
 
 import ITE from "../assets/images/about/ITE.png";
@@ -13,6 +14,7 @@ import { technologies, techCategories } from "../constants";
   title="About Me | Lukáš Netolický"
   description="Learn more about my background, interests, and journey as a student developer."
 >
+  <SectionDots />
   <div>
     <section class="page-header">
       <h1>About <span class="highlight">Me</span></h1>
@@ -21,7 +23,7 @@ import { technologies, techCategories } from "../constants";
 
     <section class="about-content">
       <div class="section">
-        <h2>Who Am I?</h2>
+        <h2 id="who-am-i">Who Am I?</h2>
         <p>
           Hey! I'm a full-stack student developer based in the Czech Republic
           who focuses on full-stack web development. I build web applications
@@ -36,7 +38,7 @@ import { technologies, techCategories } from "../constants";
       </div>
 
       <div class="section">
-        <h2>How I Got Started</h2>
+        <h2 id="how-i-got-started">How I Got Started</h2>
         <p>
           I got into coding around 2020 by experimenting with small projects and
           game modifications, especially building plugins for games like
@@ -55,7 +57,7 @@ import { technologies, techCategories } from "../constants";
 
     <section class="section skills-section">
       <div class="about-content">
-        <h2>Skills</h2>
+        <h2 id="skills">Skills</h2>
 
         <div>
           <h3>Technologies I Use</h3>
@@ -138,7 +140,7 @@ import { technologies, techCategories } from "../constants";
     </section>
 
     <section class="section about-content">
-      <h2>Education</h2>
+      <h2 id="education">Education</h2>
 
       <div class="education-item">
         <a
@@ -164,7 +166,7 @@ import { technologies, techCategories } from "../constants";
     <section class="section badges-section">
       <div class="about-content">
         <div class="certifications">
-          <h2>Certifications</h2>
+          <h2 id="certifications">Certifications</h2>
         </div>
         <div class="badges">
           <Badge
@@ -182,7 +184,7 @@ import { technologies, techCategories } from "../constants";
     </section>
 
     <section class="about-content section">
-      <h2>What's Next</h2>
+      <h2 id="whats-next">What's Next</h2>
       <p>
         Right now I'm focused on deepening my skills and building more advanced
         applications that combine modern frontend frameworks with efficient

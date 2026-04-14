@@ -1,0 +1,190 @@
+<div id="dots"></div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const headings = document.querySelectorAll("h2");
+    const dots = document.getElementById("dots");
+    const dotList: HTMLAnchorElement[] = [];
+    let headerOffset = 100;
+
+    console.log(headings);
+    headings.forEach((heading) => {
+      const dot = document.createElement("a");
+      dot.classList.add("dot");
+      dot.title = heading.innerText;
+      dot.href = `#${heading.id}`;
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = dot.getAttribute("href")?.substring(1);
+        if (!targetId) return;
+
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
+
+        history.pushState(null, "", `#${targetId}`);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      });
+
+      const tooltip = document.createElement("span");
+      tooltip.innerText = heading.innerText;
+      tooltip.classList.add("tooltip");
+
+      dot.appendChild(tooltip);
+      dotList.push(dot);
+      dots?.appendChild(dot);
+    });
+
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>(".section"),
+    ).filter((section) => section.querySelector("h2[id]"));
+
+    const setActiveDot = (id: string) => {
+      dotList.forEach((dot) => {
+        dot.classList.toggle(
+          "highlighted",
+          dot.getAttribute("href") === `#${id}`,
+        );
+      });
+    };
+
+    const updateActiveSection = () => {
+      const markerY = headerOffset + 1;
+
+      let activeSection: HTMLElement | null = null;
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= markerY && rect.bottom > markerY) {
+          activeSection = section;
+          break;
+        }
+      }
+
+      if (!activeSection) {
+        activeSection =
+          sections.find(
+            (section) => section.getBoundingClientRect().top > markerY,
+          ) ?? sections[sections.length - 1];
+      }
+
+      if (!activeSection) return;
+
+      const heading = activeSection.querySelector<HTMLHeadingElement>("h2[id]");
+      if (!heading) return;
+
+      setActiveDot(heading.id);
+    };
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("resize", () => {
+      headerOffset =
+        document.getElementById("site-header")?.offsetHeight || 100;
+    });
+
+    updateActiveSection();
+  });
+</script>
+
+<style is:global>
+  #dots {
+    position: fixed;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    background: var(--gradient);
+    border: 2px solid var(--bg-light);
+    padding: var(--space-sm);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .dot {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: var(--font-sm);
+    color: var(--text);
+  }
+
+  .dot::before {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    margin: 0.25rem;
+    border-radius: 999px;
+    background-color: var(--text-muted);
+    transition:
+      transform 0.2s ease-in-out,
+      height 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+  }
+
+  .dot:hover::before,
+  .dot:focus-visible::before {
+    transform: scale(1.5);
+    background-color: var(--text);
+  }
+
+  .dot.highlighted::before {
+    height: 0.85rem;
+    transform: scale(1.5);
+    background-color: var(--text);
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.75rem);
+    transform: translateY(-50%) translateX(-6px);
+
+    min-width: max-content;
+    max-width: 180px;
+    padding: var(--space-sm);
+    border-radius: 10px;
+
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border: 1px solid var(--bg-light);
+    font-size: var(--font-sm);
+    line-height: 1.2;
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .dot:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  @media (max-width: 1100px) {
+    #dots {
+      display: none;
+    }
+  }
+</style>

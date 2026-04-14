@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Link from "../../components/Link.astro";
 import Badge from "../../components/Badge.astro";
+import SectionDots from "../../components/SectionDots.astro";
 import "../../styles/about.css";
 
 import ITE from "../../assets/images/about/ITE.png";
@@ -13,6 +14,7 @@ import { technologies, techCategories } from "../../constants";
   title="O mně | Lukáš Netolický"
   description="Něco více o mně, mých zájmech, studiu a programování."
 >
+  <SectionDots />
   <div>
     <section class="page-header">
       <h1>O <span class="highlight">Mně</span></h1>
@@ -21,7 +23,7 @@ import { technologies, techCategories } from "../../constants";
 
     <section class="about-content">
       <div class="section">
-        <h2>Kdo jsem?</h2>
+        <h2 id="who-am-i">Kdo jsem?</h2>
         <p>
           Ahoj! Jsem vývojář z České republiky, zaměřený na full-stack vývoj.
           Vytvářím webové aplikace s využitím Reactu nebo Astra na frontendu a
@@ -36,7 +38,7 @@ import { technologies, techCategories } from "../../constants";
       </div>
 
       <div class="section">
-        <h2>Jak jsem se k programování dostal</h2>
+        <h2 id="how-i-got-started">Jak jsem se k programování dostal</h2>
         <p>
           K programování jsem se dostal kolem roku 2020, když jsem
           experimentoval s malými projekty a úpravami her, zejména tvorbou
@@ -55,7 +57,7 @@ import { technologies, techCategories } from "../../constants";
 
     <section class="section skills-section">
       <div class="about-content">
-        <h2>Moje dovednosti</h2>
+        <h2 id="skills">Moje dovednosti</h2>
 
         <div>
           <h3>Technologie, které používám</h3>
@@ -139,7 +141,7 @@ import { technologies, techCategories } from "../../constants";
     </section>
 
     <section class="section about-content">
-      <h2>Vzdělání</h2>
+      <h2 id="education">Vzdělání</h2>
 
       <div class="education-item">
         <a
@@ -165,7 +167,7 @@ import { technologies, techCategories } from "../../constants";
     <section class="section badges-section">
       <div class="about-content">
         <div class="certifications">
-          <h2>Certifikace</h2>
+          <h2 id="certifications">Certifikace</h2>
         </div>
         <div class="badges">
           <Badge
@@ -183,7 +185,7 @@ import { technologies, techCategories } from "../../constants";
     </section>
 
     <section class="about-content section">
-      <h2>Co dál?</h2>
+      <h2 id="whats-next">Co dál?</h2>
       <p>
         Momentálně se soustředím na prohlubování svých dovedností a tvorbu
         pokročilejších aplikací, které kombinují moderní frontendové frameworky
