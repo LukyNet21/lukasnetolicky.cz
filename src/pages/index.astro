@@ -1,16 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import HeroImage from "../assets/images/heroimage.png"
 import "../styles/home.css";
 import { technologies, techCategories } from "../constants.ts";
+import { Image } from "astro:assets";
 ---
 
 <Layout
   title="Lukáš Netolický | Computer Enthusiast"
   description="High school student who loves coding and tech stuff."
 >
-  <section class="container">
-    <div class="hero">
+  <section class="container hero">
+    <Image src={HeroImage} alt="Portrait of Lukáš Netolický, web developer" />
+    <div class="hero-section">
       <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
       <p class="hero-subtitle">
         Student Developer focused on building web apps
