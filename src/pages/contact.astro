@@ -56,7 +56,7 @@ import SocialIcons from "../components/SocialIcons.astro";
               <p class="info-label">Time in Prague</p>
               <p class="info-value">
                 <span id="current-time">Loading...</span>
-                <span class="timezone">(UTC+1)</span>
+                <span id="timezone">(UTC+1)</span>
               </p>
             </div>
           </li>
@@ -74,6 +74,21 @@ import SocialIcons from "../components/SocialIcons.astro";
 <script>
   document.addEventListener("astro:page-load", () => {
     const timeElement = document.getElementById("current-time");
+
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Europe/Prague",
+      timeZoneName: "shortOffset",
+    }).formatToParts(new Date());
+
+    const tz = document.getElementById("timezone");
+    if (tz) {
+      tz.textContent = `
+        (${
+          parts
+            .find((part) => part.type === "timeZoneName")
+            ?.value.replace("GMT", "UTC") ?? ""
+        })`;
+    }
 
     function updateTime() {
       if (!timeElement) return;

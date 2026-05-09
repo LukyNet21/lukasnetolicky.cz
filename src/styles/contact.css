@@ -48,7 +48,7 @@
   color: var(--text);
 }
 
-.timezone {
+#timezone {
   font-size: var(--font-sm);
   color: var(--text-muted);
   font-weight: var(--font-medium);
