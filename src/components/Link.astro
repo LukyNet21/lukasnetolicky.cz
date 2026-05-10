@@ -38,7 +38,7 @@ const {
     border-radius: 4px;
     font-weight: var(--font-medium);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
     background: transparent;
     box-shadow: var(--shadow);
     text-align: center;
@@ -67,7 +67,7 @@ const {
   }
 
   .button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
     box-shadow: var(--shadow-hover);
   }
 
