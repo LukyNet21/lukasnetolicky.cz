@@ -6,7 +6,7 @@ import "../../styles/technologies.css";
 import Link from "../../components/Link.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Date from "../../components/Date.astro";
-import { Image, getImage } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import { normalizeTech } from "../../utils/usils";
 
 export async function getStaticPaths() {
@@ -63,18 +63,34 @@ const { Content, headings } = await render(post);
       }
     </div>
 
-    <Image
-      transition:name={`post-cover-${post.id}`}
+    <Picture
+      transition:name={`project-cover-${post.id}`}
       src={post.data.cover}
       alt={post.data.coverAlt}
       class="post-image"
-      loading="lazy"
-      format="avif"
-      width={1200}
-      height={630}
+      formats={["avif", "webp"]}
+      widths={[360, 720, 1100, post.data.cover.width]}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 1100px"
       quality={70}
-      decoding="async"
+      loading="eager"
+      fetchpriority="high"
     />
+
+    <div class="post-links" transition:name={`blog-links-${post.id}`}>
+      {
+        post.data.links &&
+          post.data.links.map((link) => (
+            <Link
+              href={link.url}
+              target="_blank"
+              type="secondary"
+              color="secondary"
+            >
+              {link.name}
+            </Link>
+          ))
+      }
+    </div>
 
     <div class="post-content-wrapper">
       {headings.length > 0 && <TableOfContents headings={headings} />}
