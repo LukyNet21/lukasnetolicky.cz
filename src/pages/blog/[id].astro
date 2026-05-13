@@ -93,11 +93,11 @@ const { Content, headings } = await render(post);
     </div>
 
     <div class="post-content-wrapper">
-      {headings.length > 0 && <TableOfContents headings={headings} />}
-
       <div class="post-content">
         <Content />
       </div>
+
+      {headings.length > 0 && <TableOfContents headings={headings} />}
     </div>
 
     <div class="back-link">

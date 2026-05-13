@@ -55,7 +55,7 @@
   }
 
   .content h2 {
-    font-size: var(--font-lg);
+    font-size: var(--font-xl);
     margin-bottom: var(--space-sm);
     color: var(--text);
   }
