@@ -24,6 +24,7 @@ const {
     source,
     featured = false,
     published,
+    blogSlug
   },
   id,
   loading = "lazy",
@@ -77,12 +78,12 @@ const {
       <Link
         href={getRelativeLocaleUrl(
           Astro.currentLocale || "en",
-          `/projects/${id}`,
+          (blogSlug ? `/blog/${blogSlug}` : `/projects/${id}`),
         )}
         size="small"
         type="primary"
       >
-        View Details
+        {blogSlug? "Read blog" : "View Details"}
       </Link>
       {
         demo && (

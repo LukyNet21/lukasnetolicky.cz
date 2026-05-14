@@ -15,6 +15,7 @@ const projects = defineCollection({
     source: z.url().optional(),
     published: z.coerce.date(),
     featured: z.boolean().default(false),
+    blogSlug: z.string().optional().nullable()
   }),
 })
 
