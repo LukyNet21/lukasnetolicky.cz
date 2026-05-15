@@ -6,6 +6,7 @@ import Date from "./Date.astro";
 import { Image } from "astro:assets";
 import Link from "./Link.astro";
 import { normalizeTech } from "../utils/usils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const {
   data: { title, description, technologies, cover, coverAlt, published },
@@ -30,7 +31,8 @@ const {
     {
       published && (
         <div class="date" transition:name={`post-published-${id}`}>
-          Published: <Date date={published} />
+          {Astro.currentLocale === "cs" ? "Vydáno" : "Published:"}
+          <Date date={published} />
         </div>
       )
     }
@@ -54,8 +56,12 @@ const {
       }
     </p>
     <div class="links" transition:name={`post-links-${id}`}>
-      <Link href={`/blog/${id}/`} size="small" type="primary">
-        Read Post
+      <Link
+        href={getRelativeLocaleUrl(Astro.currentLocale || "en", `/blog/${id}`)}
+        size="small"
+        type="primary"
+      >
+        {Astro.currentLocale === "cs" ? "Přečíst příspěvek" : "Read Post"}
       </Link>
     </div>
   </div>

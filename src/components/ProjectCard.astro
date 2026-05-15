@@ -24,7 +24,7 @@ const {
     source,
     featured = false,
     published,
-    blogSlug
+    blogSlug,
   },
   id,
   loading = "lazy",
@@ -51,7 +51,8 @@ const {
     {
       published && (
         <div class="date" transition:name={`project-published-${id}`}>
-          Published: <Date date={published} />
+          {Astro.currentLocale === "cs" ? "Vydáno" : "Published:"}
+          <Date date={published} />
         </div>
       )
     }
@@ -78,17 +79,25 @@ const {
       <Link
         href={getRelativeLocaleUrl(
           Astro.currentLocale || "en",
-          (blogSlug ? `/blog/${blogSlug}` : `/projects/${id}`),
+          blogSlug ? `/blog/${blogSlug}` : `/projects/${id}`,
         )}
         size="small"
         type="primary"
       >
-        {blogSlug? "Read blog" : "View Details"}
+        {
+          blogSlug
+            ? Astro.currentLocale === "cs"
+              ? "Číst blog"
+              : "Read blog"
+            : Astro.currentLocale === "cs"
+              ? "Zobrazit detaily"
+              : "View Details"
+        }
       </Link>
       {
         demo && (
           <Link href={demo} target="_blank" size="small" color="secondary">
-            Live Demo
+            {Astro.currentLocale === "cs" ? "Živé demo" : "Live Demo"}
           </Link>
         )
       }
@@ -101,7 +110,7 @@ const {
             color="primary"
             target="_blank"
           >
-            Source Code
+            {Astro.currentLocale === "cs" ? "Zdrojový kód" : "Source Code"}
           </Link>
         )
       }

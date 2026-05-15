@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import PostsCard from "../../components/PostCard.astro";
-import "../../styles/projects.css";
+import Layout from "../../../layouts/Layout.astro";
+import PostsCard from "../../../components/PostCard.astro";
+import "../../../styles/projects.css";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog", ({ data }) => {
@@ -26,10 +26,11 @@ const sortedPosts = posts.sort((a, b) => {
     <section class="page-header">
       <h1>My <span class="highlight">Blog</span></h1>
       <p class="subtitle">
-        Welcome to my blog! Here, I share my thoughts, experiences, and insights
-        on various topics. Hope you find something interesting here. Feel free
-        to explore, and your feedback is always welcome!
+        Vítejte na mém blogu! Zde píšu o svých zkušenostech, myšlenkách a
+        věcech, které mě baví. Doufám, že tu najdete inspiraci, a budu rád za
+        jakoukoli zpětnou vazbu!
       </p>
+      <p class="subtitle">Příspěvky blogu jsou bohužel zatím pouze v angličtině.</p>
     </section>
 
     <section>

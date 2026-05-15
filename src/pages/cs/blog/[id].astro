@@ -10,7 +10,7 @@ import { Picture, getImage } from "astro:assets";
 import { normalizeTech } from "../../../utils/usils";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("projects");
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
@@ -18,7 +18,6 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-
 const coverOptimized = await getImage({
   src: post.data.cover,
   width: 1200,
@@ -29,6 +28,7 @@ const coverOptimized = await getImage({
 });
 
 const imageUrl = new URL(coverOptimized.src, Astro.site).toString();
+
 const { Content, headings } = await render(post);
 ---
 
@@ -39,13 +39,10 @@ const { Content, headings } = await render(post);
 >
   <div class="container">
     <div class="post-header">
-      <h1 transition:name={`project-title-${post.id}`}>{post.data.title}</h1>
+      <h1 transition:name={`post-title-${post.id}`}>{post.data.title}</h1>
       {
         post.data.published && (
-          <div
-            class="post-date"
-            transition:name={`project-published-${post.id}`}
-          >
+          <div class="post-date" transition:name={`post-published-${post.id}`}>
             Vydáno <Date date={post.data.published} />
           </div>
         )
@@ -56,7 +53,7 @@ const { Content, headings } = await render(post);
             {post.data.technologies.map((tech) => (
               <span
                 class={`technology ${normalizeTech(tech)}`}
-                transition:name={`project-technology-${post.id}-${normalizeTech(tech)}`}
+                transition:name={`post-technology-${post.id}-${normalizeTech(tech)}`}
               >
                 {tech}
               </span>
@@ -79,30 +76,19 @@ const { Content, headings } = await render(post);
       fetchpriority="high"
     />
 
-    <div class="post-links" transition:name={`project-links-${post.id}`}>
+    <div class="post-links" transition:name={`blog-links-${post.id}`}>
       {
-        post.data.demo && (
-          <Link
-            href={post.data.demo}
-            target="_blank"
-            type="primary"
-            color="primary"
-          >
-            Živé demo
-          </Link>
-        )
-      }
-      {
-        post.data.source && (
-          <Link
-            href={post.data.source}
-            target="_blank"
-            type="primary"
-            color="secondary"
-          >
-            Zdrojový kód
-          </Link>
-        )
+        post.data.links &&
+          post.data.links.map((link) => (
+            <Link
+              href={link.url}
+              target="_blank"
+              type="secondary"
+              color="secondary"
+            >
+              {link.name}
+            </Link>
+          ))
       }
     </div>
 
@@ -115,8 +101,8 @@ const { Content, headings } = await render(post);
     </div>
 
     <div class="back-link">
-      <Link href="/cs/projects/" type="primary" size="medium" color="primary">
-        ← Zpět na projekty
+      <Link href="/cs/blog/" type="primary" size="small" color="primary">
+        ← Zpět na všecny příspěvky
       </Link>
     </div>
   </div>
