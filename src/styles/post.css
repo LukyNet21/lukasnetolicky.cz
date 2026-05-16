@@ -195,7 +195,9 @@
   }
 
   .post-content-wrapper {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-xl);
   }
 }
 

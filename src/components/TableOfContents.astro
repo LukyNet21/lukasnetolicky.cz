@@ -21,7 +21,11 @@ const filteredHeadings = headings.filter(
       {
         filteredHeadings.map((heading) => (
           <li class={`toc-item depth-${heading.depth}`}>
-            <a href={`#${heading.slug}`} class="toc-link">
+            <a
+              href={`#${heading.slug}`}
+              class="toc-link"
+              data-section={heading.slug}
+            >
               {heading.text}
             </a>
           </li>
@@ -30,6 +34,40 @@ const filteredHeadings = headings.filter(
     </ul>
   </nav>
 </aside>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    if (window.innerWidth < 1200) return;
+
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const sections = document.querySelectorAll("h1, h2, h3, h4");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("data-section") === id) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-100px 0px -66% 0px",
+      },
+    );
+
+    sections.forEach((section) => {
+      if (section.id) {
+        observer.observe(section);
+      }
+    });
+  });
+</script>
 
 <style>
   .toc-container {
@@ -76,6 +114,12 @@ const filteredHeadings = headings.filter(
     color: var(--primary);
   }
 
+  .toc-link.active {
+    color: var(--primary);
+    font-weight: 600;
+    padding-left: var(--space-xs);
+  }
+
   .depth-1 {
     font-weight: var(--font-bold);
   }
@@ -99,6 +143,8 @@ const filteredHeadings = headings.filter(
     .toc-container {
       position: relative;
       top: 0;
+      width: 100%;
+      margin-bottom: var(--space-lg);
     }
   }
 </style>
