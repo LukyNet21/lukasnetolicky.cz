@@ -1,27 +1,24 @@
 /* Hero Section */
 .hero {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2.5rem, 7vw, 5rem) var(--space-lg);
 }
 
-.hero img {
-  width: 20rem;
+.hero-image img {
+  width: 18rem;
+  max-width: 40vw;
   height: auto;
 }
 
-.hero-section {
-  padding: var(--space-3xl) 0;
-  max-width: 800px;
-  margin: auto;
-}
-
 .hero-section h1 {
-  font-size: var(--font-5xl);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   margin-bottom: var(--space-md);
 }
 
 .hero-subtitle {
-  font-size: var(--font-2xl);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   color: var(--text-muted);
   margin-bottom: var(--space-lg);
   font-weight: var(--font-medium);
@@ -29,20 +26,20 @@
 
 .hero-description {
   font-size: var(--font-lg);
+  color: var(--text-muted);
   margin-bottom: var(--space-xl);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 38rem;
 }
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-md);
 }
 
 /* About Section */
 .home-section {
-  padding: var(--space-3xl) 0;
+  padding: clamp(3rem, 7vw, 5rem) 0;
 }
 
 .home-section h2 {
@@ -51,29 +48,30 @@
 }
 
 .about {
+  position: relative;
   background-color: var(--bg);
 }
 
 .about-content {
-  max-width: 810px;
+  max-width: 50rem;
   margin: 0 auto;
 }
 
 .about-content p {
   margin-bottom: var(--space-md);
-  line-height: 1.6;
+  font-size: var(--font-lg);
+  color: var(--text-muted);
 }
 
 /* Technologies Section */
 .home-section.container {
-  padding: var(--space-3xl) 0;
+  padding: clamp(3rem, 7vw, 5rem) var(--space-lg);
 }
 
 .home-section-description {
   text-align: center;
-  margin-bottom: var(--space-xl);
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--text-muted);
+  margin: 0 auto var(--space-2xl);
 }
 
 .tech-categories {
@@ -84,7 +82,7 @@
 }
 
 .tech-category h3 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   color: var(--secondary);
   text-align: center;
 }
@@ -98,20 +96,24 @@
 }
 
 .tech-list .list-item {
-  background: var(--gradient);
-  border: 1px solid var(--bg-light);
+  background: var(--bg-light);
+  border: 1px solid var(--border-muted);
+  min-width: 5rem;
   padding: var(--space-md) var(--space-lg);
-  border-radius: 20px;
+  border-radius: var(--radius-md);
   font-size: var(--font-sm);
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
 }
 
 .tech-list .list-item:hover {
-  background: var(--gradient-hover);
+  border-color: color-mix(in oklab, var(--primary), transparent 55%);
   box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
 }
@@ -131,30 +133,24 @@ body.light .tech-icon-dark {
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding: var(--space-xl) 0;
-    gap: 0;
+    text-align: center;
+    padding: var(--space-2xl) var(--space-md);
+    gap: var(--space-xl);
   }
 
-  .hero img {
-    width: 10rem;
-    margin: 0 auto;
+  .hero-image img {
+    width: 11rem;
+    max-width: 60vw;
   }
 
   .hero-section {
-    padding: var(--space-xl) 0;
-  }
-
-  .hero-section h1 {
-    font-size: var(--font-4xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: var(--space-sm);
   }
 
   .tech-categories {

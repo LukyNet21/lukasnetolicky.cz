@@ -27,6 +27,7 @@ import Moon from "../assets/icons/moon.svg";
 
     function applyTheme(theme: string) {
       document.body.classList.toggle("light", theme === "light");
+      document.documentElement.style.colorScheme = theme;
       const lightMode = theme === "light";
       sunIcon.classList.toggle("hidden", lightMode);
       moonIcon.classList.toggle("hidden", !lightMode);

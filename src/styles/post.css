@@ -21,7 +21,9 @@
 .post-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-muted);
+  box-shadow: var(--shadow-lg);
 }
 
 .post-links {
@@ -106,9 +108,9 @@
 }
 
 .post-content pre {
-  background: var(--gradient);
+  background: var(--bg-light);
   border: 1px solid var(--border-muted);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   padding: var(--space-md);
   overflow-x: auto;
   margin: var(--space-lg) 0;

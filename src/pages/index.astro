@@ -12,7 +12,9 @@ import { Image } from "astro:assets";
   description="High school student who loves coding and tech stuff."
 >
   <section class="container hero">
-    <Image src={HeroImage} alt="Portrait of Lukáš Netolický, web developer" />
+    <div class="hero-image">
+      <Image src={HeroImage} alt="Portrait of Lukáš Netolický, web developer" />
+    </div>
     <div class="hero-section">
       <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
       <p class="hero-subtitle">

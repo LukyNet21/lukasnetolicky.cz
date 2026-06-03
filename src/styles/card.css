@@ -1,11 +1,13 @@
   .card {
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--gradient);
+    border: 1px solid var(--border-muted);
     box-shadow: var(--shadow);
     transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+      transform var(--transition),
+      box-shadow var(--transition),
+      border-color var(--transition);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -15,11 +17,18 @@
   .card:hover {
     transform: translateY(-5px);
     background: var(--gradient-hover);
-    box-shadow: var(--shadow-hover);
+    border-color: color-mix(in oklab, var(--primary), transparent 55%);
+    box-shadow: var(--shadow-hover), 0 18px 40px -20px var(--ring);
   }
 
   .card.featured {
-    border: 2px solid var(--secondary);
+    border-color: color-mix(in oklab, var(--secondary), transparent 35%);
+  }
+
+  .card.featured:hover {
+    border-color: color-mix(in oklab, var(--secondary), transparent 35%);
+    box-shadow: var(--shadow-hover),
+      0 18px 40px -20px color-mix(in oklab, var(--secondary), transparent 45%);
   }
 
   .featured-badge {
@@ -27,11 +36,12 @@
     top: 12px;
     right: 12px;
     background-color: var(--secondary);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 16px;
+    color: var(--bg-dark);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
     font-size: var(--font-xs);
     font-weight: var(--font-bold);
+    box-shadow: var(--shadow);
     z-index: 10;
   }
 
@@ -40,7 +50,8 @@
     height: 200px;
     overflow: hidden;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-bottom: 1px solid var(--border-muted);
+    transition: transform 0.5s var(--ease-out);
   }
 
   .card:hover .image {
@@ -48,7 +59,7 @@
   }
 
   .content {
-    padding: var(--space-md);
+    padding: var(--space-lg);
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -81,9 +92,12 @@
 
   .links {
     display: flex;
-    justify-content: space-around;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     margin-top: auto;
+  }
+
+  .links .button {
+    flex: 1;
   }
 
   @media (max-width: 768px) {

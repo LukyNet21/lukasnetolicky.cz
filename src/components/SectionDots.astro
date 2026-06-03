@@ -7,7 +7,6 @@
     const dotList: HTMLAnchorElement[] = [];
     let headerOffset = 100;
 
-    console.log(headings);
     headings.forEach((heading) => {
       const dot = document.createElement("a");
       dot.classList.add("dot");
@@ -109,11 +108,11 @@
     justify-content: center;
     gap: 1rem;
 
-    background: var(--gradient);
-    border: 2px solid var(--bg-light);
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    border: 1px solid var(--border-muted);
     padding: var(--space-sm);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
   }
 
   .dot {
@@ -159,12 +158,12 @@
 
     min-width: max-content;
     max-width: 180px;
-    padding: var(--space-sm);
-    border-radius: 10px;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
 
-    background: var(--bg-dark);
-    color: var(--text-light);
-    border: 1px solid var(--bg-light);
+    background: var(--bg-light);
+    color: var(--text);
+    border: 1px solid var(--border-muted);
     font-size: var(--font-sm);
     line-height: 1.2;
     box-shadow: var(--shadow);

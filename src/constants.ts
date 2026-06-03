@@ -6,7 +6,6 @@ import jsIcon from "./assets/icons/js.svg"
 import htmlIcon from "./assets/icons/html.svg"
 import cssIcon from "./assets/icons/css.svg"
 import tailwindIcon from "./assets/icons/tailwindcss.svg"
-import tailwindIconWhite from "./assets/icons/tailwindcss-white.svg"
 
 import goIcon from "./assets/icons/go.svg"
 import postgreIcon from "./assets/icons/postgresql.svg"
@@ -31,7 +30,7 @@ export const technologies = [
   { name: "JavaScript", category: "frontend", icon: jsIcon },
   { name: "HTML", category: "frontend", icon: htmlIcon, homePage: true },
   { name: "CSS", category: "frontend", icon: cssIcon },
-  { name: "Tailwind CSS", url: "https://tailwindcss.com/", category: "frontend", icon: tailwindIconWhite, lightModeIcon: tailwindIcon, homePage: true },
+  { name: "Tailwind CSS", url: "https://tailwindcss.com/", category: "frontend", icon: tailwindIcon, homePage: true },
 
   // Backend
   { name: "Golang", url: "https://go.dev/", category: "backend", icon: goIcon, homePage: true, featured: true },

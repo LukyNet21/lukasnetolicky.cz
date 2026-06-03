@@ -73,13 +73,14 @@ const filteredHeadings = headings.filter(
   .toc-container {
     position: sticky;
     top: 6rem;
-    padding: var(--space-md);
+    padding: var(--space-lg);
     background-color: var(--bg-light);
-    border-radius: 8px;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
     margin-bottom: var(--space-lg);
     align-self: start;
     box-shadow: var(--shadow);
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow var(--transition-fast);
   }
 
   .toc-container:hover {

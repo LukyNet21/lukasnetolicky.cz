@@ -34,52 +34,83 @@ const {
 
 <style>
   .button {
-    display: inline-block;
-    border-radius: 4px;
-    font-weight: var(--font-medium);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-semibold);
+    line-height: 1.2;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
     background: transparent;
     box-shadow: var(--shadow);
     text-align: center;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
   }
 
-  /* Colors */
+  .button:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Outline primary */
   .button-primary {
-    border: 2px solid var(--primary);
+    border-color: color-mix(in oklab, var(--primary), transparent 45%);
     color: var(--primary);
+    background: color-mix(in oklab, var(--primary), transparent 92%);
   }
 
+  .button-primary:hover {
+    border-color: var(--primary);
+    background: color-mix(in oklab, var(--primary), transparent 84%);
+  }
+
+  /* Solid primary */
   .button-primary.primary {
+    border-color: transparent;
     background-color: var(--primary);
     color: var(--bg);
   }
 
-  .button-secondary {
-    border: 2px solid var(--secondary);
-    color: var(--text);
+  .button-primary.primary:hover {
+    background-color: color-mix(in oklab, var(--primary), var(--text) 12%);
   }
 
+  /* Outline secondary */
+  .button-secondary {
+    border-color: color-mix(in oklab, var(--secondary), transparent 45%);
+    color: var(--text);
+    background: color-mix(in oklab, var(--secondary), transparent 93%);
+  }
+
+  .button-secondary:hover {
+    border-color: var(--secondary);
+    background: color-mix(in oklab, var(--secondary), transparent 86%);
+  }
+
+  /* Solid neutral */
   .button-secondary.primary {
     background-color: var(--bg-light);
     color: var(--text);
-    border-color: var(--bg-light);
-  }
-
-  .button:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: var(--shadow-hover);
+    border-color: var(--border-muted);
   }
 
   /* Sizes */
   .small {
     font-size: var(--font-xs);
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-sm) var(--space-sm);
   }
 
   .medium {
     font-size: var(--font-md);
-    padding: var(--space-sm) var(--space-lg);
+    padding: 0.7rem var(--space-lg);
   }
 
   .large {
