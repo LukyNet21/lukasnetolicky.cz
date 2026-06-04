@@ -27,12 +27,10 @@ The app acts as a bridge. When my iPhone or PC asks for a calendar update, the G
 3. Converts everything into a calendar format.
 4. Sends the file back so the calendar can display it.
 
-### The Security Evolution
-My main goal at the start was to make the app **stateless**. I wanted it to work without any internal storage or database so anyone could use it immediately without me having to set anything up for them. However, figuring out how to pass login info safely was a process:
+### Getting the login part right
+My goal at the start was to keep the app stateless, with no storage or database, so that anyone could use it without me having to set anything up for them. The tricky part was getting the login credentials to the server safely while keeping it that way, and it took me a few tries before I was happy with it.
 
-* **Step 1: Plaintext.** I started by putting the username and password directly in the URL. This met my goal of being stateless, but it was really unsafe because anyone who saw the link could see the login details in plain text.
-* **Step 2: Encryption.** To make it better, I tried encrypting the credentials before putting them in the URL. This felt safer, but I realized it still wasn't great. If the encryption key ever leaked, those credentials could be decrypted by anyone, and the URL was still carrying the sensitive data.
-* **Step 3: Config File (Current).** I eventually realized that total statelessness wasn't worth the security risk. I moved to a system where the server uses a config file. This file maps a unique "Token" to the actual login credentials. Now, I just put my token in the URL. The server stays secure because the sensitive info never leaves the backend, and I can still let multiple people use it just by adding their credentials to the config.
+My first attempt was to just put the username and password straight in the URL. That kept everything stateless, but it also meant that anyone who saw the link could read my password in plain text, which was obviously a bad idea. After that I tried encrypting the credentials before adding them to the URL. It felt safer at first, until I realised that if the encryption key ever leaked, the credentials were still sitting right there in the URL waiting to be decrypted. In the end I decided that being fully stateless without any storage wasn't worth the risk. Now the server keeps a small config file that maps a token to the real login details, so the only thing I put in the URL is the token. The sensitive information never leaves the backend, and I can still let other people use it by adding their credentials to the config.
 
 ## The Technical Bits
 
@@ -47,4 +45,4 @@ To create the actual calendar file (`.ics`), I used a library called `arran4/gol
 
 ## Conclusion
 
-This was a fun project that actually makes my life easier. I don't have to open the Bakaláři app anymore, my classes are just right there on my lock screen or easily in my calendar. It was a great way to learn more about Go and how to handle user data more securely.
+This was a fun project that actually makes my life easier. I don't have to open the Bakaláři app anymore, my classes are just right there on my lock screen or in my calendar. It also taught me a lot about Go, and about not being careless with people's login data.

@@ -91,7 +91,7 @@
   transform: translateY(-4px);
   text-decoration: none;
   box-shadow: var(--shadow-hover),
-    0 0 15px oklch(from var(--primary) l c h / 0.1);
+    0 0 18px oklch(from var(--primary) l c h / 0.25);
 }
 
 .icon-grid li:nth-child(odd) .icon-card:hover {
@@ -127,6 +127,14 @@
   color: var(--text);
 }
 
+body:not(.light) .tech-icon-light {
+  display: none;
+}
+
+body.light .tech-icon-dark {
+  display: none;
+}
+
 .education-item h3 {
   margin-bottom: var(--space-xs);
 }
@@ -138,14 +146,6 @@
 
 .education-desc {
   font-size: var(--font-sm);
-}
-
-body:not(.light) .tech-icon-light {
-  display: none;
-}
-
-body.light .tech-icon-dark {
-  display: none;
 }
 
 .language-list {

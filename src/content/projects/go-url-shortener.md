@@ -8,11 +8,11 @@ cover: "../../assets/images/projects/go-url-shortener.png"
 coverAlt: "Screenshot of the Go URL Shortener UI"
 source: "https://github.com/LukyNet21/go-url-shortener"
 ---
-# Go URL shotrener
+# Go URL Shortener
 
 ## About This Project
 
-go-url-shortener is a simple URL shortening service implemented in Go. It provides both a minimal web-based user interface and a RESTful API to generate short aliases for long URLs, then redirect users back to the original addresses when those aliases are accessed. The service runs on port 8080 by default and persists URL mappings in a local JSON file (`urls.json`).
+go-url-shortener is a simple URL shortening service implemented in Go. It has a small web UI and a REST API. You give it a long URL, it gives you a short one, and visiting the short one sends you to the original. The service runs on port 8080 by default and persists URL mappings in a local JSON file (`urls.json`).
 
 > **Disclaimer:** This project was built purely for learning and **should not** be used anywhere.
 

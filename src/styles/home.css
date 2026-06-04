@@ -114,7 +114,8 @@
 
 .tech-list .list-item:hover {
   border-color: color-mix(in oklab, var(--primary), transparent 55%);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-hover),
+    0 0 18px oklch(from var(--primary) l c h / 0.25);
   transform: translateY(-3px);
 }
 

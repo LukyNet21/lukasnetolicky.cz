@@ -13,18 +13,18 @@ source: "https://github.com/lukyNet21/lukasnetolicky.cz"
 
 ## About This Project
 
-This is my personal website and portfolio that I built to showcase my projects, skills, and share a bit about myself. I designed it with simplicity and performance in mind, creating a clean interface that highlights my work without unnecessary distractions.
+This is my personal website and portfolio that I built to showcase my projects, skills, and share a bit about myself. I wanted it simple and fast. No clutter, just my projects and a some info about me.
 
 ## Features
 
-- **Fast Performance**: Built with Astro for optimal speed and minimal JavaScript
-- **Responsive Design**: Works seamlessly on devices of all sizes
+- **Fast Performance**: Built with Astro, so it's fast and ships barely any JavaScript.
+- **Responsive Design**: Works on phones, desktops and tablets
 - **Project Showcase**: Project pages with descriptions and technologies used
 - **Content Collections**: Organized content management using Astro's content collections
 
 ## Development Process
 
-I built this site from scratch using Astro, which allowed me to create a blazing fast static site while still having the ability to use modern web technologies when needed. The development process involved:
+I built this site from scratch using Astro. It builds a static site that's really fast, but I can still drop in JS where I actually need it. The development process involved:
 
 1. Planning the site structure
 2. Setting up the Astro project with TypeScript support
@@ -38,7 +38,7 @@ This project helped me strengthen my skills with Astro's component structure and
 
 ## Future Improvements
 
-As I continue to develop my skills, I plan to enhance this website with:
+Stuff I want to add later:
 
 - A blog section to share my coding experiences and knowledge
 - Improved animations and transitions
