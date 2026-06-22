@@ -5,6 +5,7 @@ import Badge from "../../components/Badge.astro";
 import SectionDots from "../../components/SectionDots.astro";
 import "../../styles/about.css";
 
+import CCNAINT_1 from "../../assets/images/about/CCNAITN_1.png";
 import ITE from "../../assets/images/about/ITE.png";
 import I2CS from "../../assets/images/about/I2CS.png";
 import { technologies, techCategories } from "../../constants";
@@ -170,6 +171,11 @@ import { technologies, techCategories } from "../../constants";
           <h2 id="certifications">Certifikace</h2>
         </div>
         <div class="badges">
+          <Badge
+            image={CCNAINT_1}
+            href="https://www.credly.com/badges/573bb33a-7307-4a1f-b5b5-b21b0027e461"
+            alt="CCNA: Introduction to Networks Credly badge"
+          />
           <Badge
             image={ITE}
             href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
