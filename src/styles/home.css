@@ -42,8 +42,12 @@
   padding: clamp(3rem, 7vw, 5rem) 0;
 }
 
-.home-section h2 {
+.home-section h2,
+.home-section .eyebrow {
   text-align: center;
+}
+
+.home-section h2 {
   margin-bottom: var(--space-xl);
 }
 
@@ -74,25 +78,14 @@
   margin: 0 auto var(--space-2xl);
 }
 
-.tech-categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--space-xl);
-  margin: 0 auto;
-}
-
-.tech-category h3 {
-  margin-bottom: var(--space-lg);
-  color: var(--secondary);
-  text-align: center;
-}
-
 .tech-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
   justify-content: center;
+  max-width: 48rem;
+  margin: 0 auto;
 }
 
 .tech-list .list-item {
@@ -152,9 +145,5 @@ body.light .tech-icon-dark {
 
   .hero-buttons {
     flex-direction: column;
-  }
-
-  .tech-categories {
-    grid-template-columns: 1fr;
   }
 }

@@ -3,12 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import Link from "../../components/Link.astro";
 import Badge from "../../components/Badge.astro";
 import SectionDots from "../../components/SectionDots.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
 import "../../styles/about.css";
 
-import CCNAINT_1 from "../../assets/images/about/CCNAITN_1.png";
-import ITE from "../../assets/images/about/ITE.png";
-import I2CS from "../../assets/images/about/I2CS.png";
-import { technologies, techCategories } from "../../constants";
+import { technologies, techCategories, certificates } from "../../constants";
 ---
 
 <Layout
@@ -18,7 +16,8 @@ import { technologies, techCategories } from "../../constants";
   <SectionDots />
   <div>
     <section class="page-header">
-      <h1>O <span class="highlight">Mně</span></h1>
+      <Eyebrow>o mně</Eyebrow>
+      <h1>O mně</h1>
       <p class="subtitle">Moje cesta</p>
     </section>
 
@@ -26,15 +25,12 @@ import { technologies, techCategories } from "../../constants";
       <div class="section">
         <h2 id="who-am-i">Kdo jsem?</h2>
         <p>
-          Ahoj! Jsem vývojář z České republiky, zaměřený na full-stack vývoj.
-          Vytvářím webové aplikace s využitím Reactu nebo Astra na frontendu a
-          Go nebo Hono na backendu pro rychlá a spolehlivá API.
-        </p>
-        <p>
-          Rád řeším skutečné problémy a vytvářím nástroje, které mohou lidé
-          skutečně používat. Vždy se snažím objevovat a učit se nové
-          technologie, které mi pomáhají vytvářet lepší, čistší a efektivnější
-          řešení.
+          Ahoj! Jsem Lukáš, student a vývojář z České republiky a dělám
+          full-stack webový vývoj. Weby tvořím v Reactu nebo Astru na frontendu
+          a s Go nebo Hono na backendu. Poslední dobou dělám hodně na frontendu,
+          ale nejvíc mě zajímá a baví backend. Baví mě řešit reálné problémy a
+          tvořit je v něco, co opravdu jde využijí, rád zkouším nové nástroje a
+          frameworky, jestli s nimi dokážu vytvářet lepší software.
         </p>
       </div>
 
@@ -52,6 +48,15 @@ import { technologies, techCategories } from "../../constants";
           full-stack aplikace a učím se technologie, které konkrétní projekt
           vyžaduje. Baví mě postupně řešit problémy a proměňovat nápady ve
           skutečný, funkční software.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 id="teaching">Učím</h2>
+        <p>
+          Přes školu již druhým rokem učím programovat mladší děti. Baví mě
+          předávat dál to, co umím a pomáhat někomu rozběhnout jeho první
+          programy.
         </p>
       </div>
     </section>
@@ -171,21 +176,11 @@ import { technologies, techCategories } from "../../constants";
           <h2 id="certifications">Certifikace</h2>
         </div>
         <div class="badges">
-          <Badge
-            image={CCNAINT_1}
-            href="https://www.credly.com/badges/573bb33a-7307-4a1f-b5b5-b21b0027e461"
-            alt="CCNA: Introduction to Networks Credly badge"
-          />
-          <Badge
-            image={ITE}
-            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
-            alt="IT Essentials Credly badge"
-          />
-          <Badge
-            image={I2CS}
-            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
-            alt="Introduction to Cybersecurity Credly badge"
-          />
+          {
+            certificates.map((cert) => (
+              <Badge image={cert.image} href={cert.href} alt={cert.alt} />
+            ))
+          }
         </div>
       </div>
     </section>

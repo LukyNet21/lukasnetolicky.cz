@@ -9,7 +9,6 @@ import tailwindIcon from "./assets/icons/tailwindcss.svg"
 
 import goIcon from "./assets/icons/go.svg"
 import postgreIcon from "./assets/icons/postgresql.svg"
-import nextjsIcon from "./assets/icons/nextjs.svg"
 import honoIcon from "./assets/icons/hono.svg"
 
 import gitIcon from "./assets/icons/git.svg"
@@ -28,15 +27,14 @@ export const technologies = [
   { name: "Astro", url: "https://astro.build/", category: "frontend", icon: astroIcon, lightModeIcon: astroIconDark, homePage: true },
   { name: "TypeScript", url: "https://www.typescriptlang.org/", category: "frontend", icon: tsIcon },
   { name: "JavaScript", category: "frontend", icon: jsIcon },
-  { name: "HTML", category: "frontend", icon: htmlIcon, homePage: true },
+  { name: "HTML", category: "frontend", icon: htmlIcon },
   { name: "CSS", category: "frontend", icon: cssIcon },
   { name: "Tailwind CSS", url: "https://tailwindcss.com/", category: "frontend", icon: tailwindIcon, homePage: true },
 
   // Backend
   { name: "Golang", url: "https://go.dev/", category: "backend", icon: goIcon, homePage: true, featured: true },
   { name: "PostgreSQL", url: "https://www.postgresql.org/", category: "backend", icon: postgreIcon, homePage: true },
-  { name: "Hono", url: "https://hono.dev/", category: "backend", icon: honoIcon, homePage: true },
-  { name: "Next.js", url: "https://nextjs.org/", category: "backend", icon: nextjsIcon },
+  { name: "Hono", url: "https://hono.dev/", category: "backend", icon: honoIcon },
 
   // Tools
   { name: "Git", url: "https://git-scm.com/", category: "tools", icon: gitIcon, homePage: true, featured: true },
@@ -69,3 +67,26 @@ export const socialLinks = [
     noSocialLink: true
   },
 ];
+
+import CCNAINT_1 from "./assets/images/about/CCNAITN_1.png";
+import ITE from "./assets/images/about/ITE.png";
+import I2CS from "./assets/images/about/I2CS.png";
+
+
+export const certificates = [
+  {
+    image: CCNAINT_1,
+    href: "https://www.credly.com/badges/573bb33a-7307-4a1f-b5b5-b21b0027e461",
+    alt: "CCNA: Introduction to Networks Credly badge",
+  },
+  {
+    image: ITE,
+    href: "https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a",
+    alt: "IT Essentials Credly badge",
+  },
+  {
+    image: I2CS,
+    href: "https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480",
+    alt: "Introduction to Cybersecurity Credly badge",
+  }
+]

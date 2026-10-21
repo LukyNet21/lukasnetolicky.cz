@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
+import Eyebrow from "../../components/Eyebrow.astro";
 import "../../styles/projects.css";
 import { getCollection } from "astro:content";
 
@@ -27,8 +28,12 @@ const sortedProjects = projects.sort((a, b) => {
 >
   <div class="container">
     <section class="page-header">
-      <h1>My <span class="highlight">Projects</span></h1>
-      <p class="subtitle">Here's what I've been working on</p>
+      <Eyebrow>work</Eyebrow>
+      <h1>My Projects</h1>
+      <p class="subtitle">
+        Some of the projects I've built. Not everything I make ends up here,
+        just the ones worth showing.
+      </p>
     </section>
 
     <section class="projects-container">

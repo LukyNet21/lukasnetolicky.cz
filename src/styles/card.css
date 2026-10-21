@@ -39,6 +39,7 @@
     color: var(--bg-dark);
     padding: 4px 12px;
     border-radius: var(--radius-full);
+    font-family: var(--font-mono);
     font-size: var(--font-xs);
     font-weight: var(--font-bold);
     box-shadow: var(--shadow);
@@ -72,6 +73,7 @@
   }
 
   .date {
+    font-family: var(--font-mono);
     font-size: var(--font-xs);
     color: var(--text-muted);
     margin-bottom: var(--space-md);

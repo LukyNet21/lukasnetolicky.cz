@@ -3,12 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 import Badge from "../components/Badge.astro";
 import SectionDots from "../components/SectionDots.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 import "../styles/about.css";
 
-import CCNAINT_1 from "../assets/images/about/CCNAITN_1.png";
-import ITE from "../assets/images/about/ITE.png";
-import I2CS from "../assets/images/about/I2CS.png";
-import { technologies, techCategories } from "../constants";
+import { technologies, techCategories, certificates } from "../constants";
 ---
 
 <Layout
@@ -18,7 +16,8 @@ import { technologies, techCategories } from "../constants";
   <SectionDots />
   <div>
     <section class="page-header">
-      <h1>About <span class="highlight">Me</span></h1>
+      <Eyebrow>about</Eyebrow>
+      <h1>About Me</h1>
       <p class="subtitle">My coding journey</p>
     </section>
 
@@ -26,14 +25,13 @@ import { technologies, techCategories } from "../constants";
       <div class="section">
         <h2 id="who-am-i">Who Am I?</h2>
         <p>
-          Hey! I'm a student developer from the Czech Republic doing full-stack
-          web development. I build web apps using React or Astro on the frontend
-          and Go or Hono on the backend for fast, reliable APIs.
-        </p>
-        <p>
-          I enjoy solving real problems and turning them into things people can
-          actually use, and I'm always trying out new tools and frameworks to
-          see whether they make my projects better.
+          Hey! I'm Lukáš, a student developer from the Czech Republic doing
+          full-stack web development. I build web apps with React or Astro on
+          the frontend and Go or Hono on the backend. Lately I've been doing a
+          lot of frontend, but the backend is what interests me most. I enjoy
+          solving real problems and turning them into things people can actually
+          use, and I like trying out new tools and frameworks to see whether
+          they make my projects better.
         </p>
       </div>
 
@@ -51,6 +49,15 @@ import { technologies, techCategories } from "../constants";
           applications and learning whatever technologies a project requires. I
           enjoy figuring things out as I go, turning ideas into real, working
           software.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 id="teaching">Teaching</h2>
+        <p>
+          Through my school I've been teaching programming to younger kids for a
+          second year now. I enjoy passing on what I've learned and helping
+          someone get their first programs working.
         </p>
       </div>
     </section>
@@ -169,21 +176,11 @@ import { technologies, techCategories } from "../constants";
           <h2 id="certifications">Certifications</h2>
         </div>
         <div class="badges">
-          <Badge
-            image={CCNAINT_1}
-            href="https://www.credly.com/badges/573bb33a-7307-4a1f-b5b5-b21b0027e461"
-            alt="CCNA: Introduction to Networks Credly badge"
-          />
-          <Badge
-            image={ITE}
-            href="https://www.credly.com/badges/9b46baef-0bc1-4397-8a4d-c4ea53082e1a"
-            alt="IT Essentials Credly badge"
-          />
-          <Badge
-            image={I2CS}
-            href="https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480"
-            alt="Introduction to Cybersecurity Credly badge"
-          />
+          {
+            certificates.map((cert) => (
+              <Badge image={cert.image} href={cert.href} alt={cert.alt} />
+            ))
+          }
         </div>
       </div>
     </section>

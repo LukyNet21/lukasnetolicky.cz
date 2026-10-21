@@ -64,6 +64,10 @@
   /* 64px */
   --space-3xl: 4rem;
 
+  /* Font Families */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
   /* Typography Scale */
   /* 12px */
   --font-xs: 0.75rem;
@@ -97,34 +101,34 @@
 }
 
 body.light {
-  --bg-dark: hsl(211 11% 90%);
-  --bg: hsl(211 22% 95%);
-  --bg-light: hsl(211 100% 100%);
-  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
-  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --bg-dark: hsl(210 30% 98%);
+  --bg: hsl(212 28% 95%);
+  --bg-light: hsl(0 0% 100%);
+  --gradient: linear-gradient(0deg, var(--bg-light), var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, hsl(210 40% 99%), var(--bg-light));
 
-  --text: hsl(211 31% 5%);
-  --text-muted: hsl(211 6% 28%);
+  --text: hsl(213 35% 8%);
+  --text-muted: hsl(214 14% 30%);
 
-  --highlight: hsl(211 100% 100%);
-  --border: hsl(211 4% 51%);
-  --border-muted: hsl(211 6% 62%);
+  --highlight: hsl(0 0% 100%);
+  --border: hsl(212 14% 72%);
+  --border-muted: hsl(212 20% 86%);
 
-  --primary: hsl(208 74% 28%);
-  --secondary: hsl(38 100% 17%);
+  --primary: hsl(208 74% 30%);
+  --secondary: hsl(30 70% 32%);
   --danger: hsl(9 21% 41%);
 
   --warning: hsl(52 23% 34%);
   --success: hsl(147 19% 36%);
   --info: hsl(217 22% 41%);
 
-  --shadow: 0 2px 8px oklch(0.1 0.015 225 / 0.12), 0 1px 3px oklch(0.1 0.015 225 / 0.08);
-  --shadow-hover: 0 4px 16px oklch(0.1 0.015 225 / 0.16), 0 2px 6px oklch(0.1 0.015 225 / 0.12);
+  --shadow: 0 1px 2px oklch(0.35 0.03 250 / 0.06), 0 4px 12px oklch(0.35 0.03 250 / 0.07);
+  --shadow-hover: 0 2px 4px oklch(0.35 0.03 250 / 0.08), 0 10px 24px oklch(0.35 0.03 250 / 0.12);
   --shadow-lg: 0 18px 40px -12px oklch(0.45 0.04 245 / 0.22), 0 6px 16px -8px oklch(0.45 0.04 245 / 0.16);
 
-  --ring: hsl(208 74% 38% / 0.5);
-  --glow-primary: hsl(208 74% 40% / 0.14);
-  --glow-secondary: hsl(38 90% 40% / 0.12);
+  --ring: hsl(208 74% 38% / 0.4);
+  --glow-primary: hsl(208 80% 60% / 0.12);
+  --glow-secondary: hsl(30 90% 60% / 0.08);
 }
 
 *,
@@ -145,17 +149,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-image:
-    radial-gradient(
-      60rem 40rem at 50% -10rem,
+    radial-gradient(60rem 40rem at 50% -10rem,
       var(--glow-primary),
-      transparent 70%
-    ),
-    radial-gradient(
-      45rem 30rem at 100% 0,
+      transparent 70%),
+    radial-gradient(45rem 30rem at 100% 0,
       var(--glow-secondary),
-      transparent 60%
-    );
-  font-family: "Inter", sans-serif;
+      transparent 60%);
+  font-family: var(--font-sans);
   font-weight: var(--font-normal);
   font-size: var(--font-md);
   font-style: normal;
@@ -242,6 +242,7 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

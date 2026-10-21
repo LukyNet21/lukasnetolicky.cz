@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import PostsCard from "../../../components/PostCard.astro";
+import Eyebrow from "../../../components/Eyebrow.astro";
 import "../../../styles/projects.css";
 import { getCollection } from "astro:content";
 
@@ -24,7 +25,8 @@ const sortedPosts = posts.sort((a, b) => {
 >
   <div class="container">
     <section class="page-header">
-      <h1>Můj <span class="highlight">Blog</span></h1>
+      <Eyebrow>blog</Eyebrow>
+      <h1>Můj blog</h1>
       <p class="subtitle">
         Vítejte na mém blogu! Zde píšu o svých zkušenostech, myšlenkách a
         věcech, které mě baví. Doufám, že tu najdete inspiraci, a budu rád za

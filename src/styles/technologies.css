@@ -4,6 +4,7 @@
   padding: 0.2rem 0.6rem;
   border: 1px solid var(--border-muted);
   border-radius: var(--radius-full);
+  font-family: var(--font-mono);
   font-size: var(--font-xs);
   font-weight: var(--font-medium);
   transition: transform var(--transition-fast), border-color var(--transition-fast);

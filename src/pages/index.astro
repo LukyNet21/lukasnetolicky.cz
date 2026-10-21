@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 import HeroImage from "../assets/images/heroimage.png";
 import "../styles/home.css";
-import { technologies, techCategories } from "../constants.ts";
+import { technologies } from "../constants.ts";
 import { Image } from "astro:assets";
 ---
 
@@ -18,14 +19,13 @@ import { Image } from "astro:assets";
     <div class="hero-section">
       <h1>Hey! I'm <span class="highlight">Lukáš</span></h1>
       <p class="hero-subtitle">
-        Student Developer focused on building web apps
+        Student developer building full-stack web apps
       </p>
       <p class="hero-description">
-        I'm a student developer who enjoys building fast, functional
-        applications using modern tools. What I enjoy most is taking something
-        complicated and figuring out how to make it actually work. Right now I'm
-        exploring modern web development and building projects to improve my
-        skills.
+        I'm a student developer who enjoys building full-stack web applications.
+        Lately I've been doing a lot of frontend work, but I'm most interested
+        in the backend. I also teach programming to younger kids, since I enjoy
+        passing on what I've learned.
       </p>
       <div class="hero-buttons">
         <Link href="/projects/" type="primary">Check Out My Projects</Link>
@@ -37,19 +37,22 @@ import { Image } from "astro:assets";
   <!-- About Section -->
   <section class="home-section about">
     <div class="container">
+      <Eyebrow>about</Eyebrow>
       <h2>About Me</h2>
       <div class="about-content">
         <p>
-          I'm a student developer who enjoys solving problems and building
-          projects that turn ideas into real applications people can use.
-          Building projects helps me understand how things really work, and
-          that's what keeps me motivated.
+          Building projects is how I learn how things really work, and that's
+          the part I enjoy most. Sometimes I'll write smaller things from
+          scratch just to see how they work on the inside. I'm mostly interested
+          in web development, performance, and clean code. Most of my projects
+          use React on the frontend, and Go or Hono on the backend.
         </p>
         <p>
-          I'm especially interested in web development, performance, and writing
-          clean, maintainable code. I enjoy exploring new tools and technologies
-          that help me build better software. Most of my projects use React on
-          the frontend, while on the backend I typically work with Go or Hono.
+          Right now most of my time goes into nimap, a tool for documenting
+          physical network infrastructure on a map: where each device is and how
+          the cables run between them. It uses Go and PostgreSQL on the backend
+          and React for the map. It's still early, but it's the project I'm
+          learning the most from at the moment.
         </p>
       </div>
     </div>
@@ -57,55 +60,47 @@ import { Image } from "astro:assets";
 
   <!-- Technologies Section -->
   <section class="container home-section">
+    <Eyebrow>stack</Eyebrow>
     <h2>Technologies I Work With</h2>
     <p class="home-section-description">
       Here are some of the tools and technologies I use when building projects.
     </p>
-    <div class="tech-categories">
+    <ul class="tech-list">
       {
-        techCategories.map((category) => (
-          <div class="tech-category">
-            <h3>{category.title}</h3>
-            <ul class="tech-list">
-              {technologies
-                .filter(
-                  (tech) => tech.category === category.key && tech.homePage,
-                )
-                .map((tech) => (
-                  <li>
-                    {tech.url ? (
-                      <a
-                        href={tech.url}
-                        class="list-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={tech.name}
-                      >
-                        <tech.icon
-                          class="tech-icon"
-                          class:list={tech.lightModeIcon && "tech-icon-dark"}
-                        />
-                        {tech.lightModeIcon && (
-                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
-                        )}
-                      </a>
-                    ) : (
-                      <div class="list-item" aria-label={tech.name}>
-                        <tech.icon
-                          class="tech-icon"
-                          class:list={tech.lightModeIcon && "tech-icon-dark"}
-                        />
-                        {tech.lightModeIcon && (
-                          <tech.lightModeIcon class="tech-icon tech-icon-light" />
-                        )}
-                      </div>
-                    )}
-                  </li>
-                ))}
-            </ul>
-          </div>
-        ))
+        technologies
+          .filter((tech) => tech.homePage)
+          .map((tech) => (
+            <li>
+              {tech.url ? (
+                <a
+                  href={tech.url}
+                  class="list-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={tech.name}
+                >
+                  <tech.icon
+                    class="tech-icon"
+                    class:list={tech.lightModeIcon && "tech-icon-dark"}
+                  />
+                  {tech.lightModeIcon && (
+                    <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                  )}
+                </a>
+              ) : (
+                <div class="list-item" aria-label={tech.name}>
+                  <tech.icon
+                    class="tech-icon"
+                    class:list={tech.lightModeIcon && "tech-icon-dark"}
+                  />
+                  {tech.lightModeIcon && (
+                    <tech.lightModeIcon class="tech-icon tech-icon-light" />
+                  )}
+                </div>
+              )}
+            </li>
+          ))
       }
-    </div>
+    </ul>
   </section>
 </Layout>

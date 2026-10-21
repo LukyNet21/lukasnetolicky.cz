@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
+import Eyebrow from "../../../components/Eyebrow.astro";
 import "../../../styles/projects.css";
 import { getCollection } from "astro:content";
 
@@ -27,8 +28,12 @@ const sortedProjects = projects.sort((a, b) => {
 >
   <div class="container">
     <section class="page-header">
-      <h1>Moje <span class="highlight">Projekty</span></h1>
-      <p class="subtitle">Zde naleznete projekty na kterých jsem pracoval.</p>
+      <Eyebrow>práce</Eyebrow>
+      <h1>Moje projekty</h1>
+      <p class="subtitle">
+        Nějaké projekty, které jsem vytvořil. Ne všechno, co udělám, se sem
+        dostane, jen to, co stojí za ukázání.
+      </p>
       <p class="subtitle">Popisy projektů jsou zatím pouze v angličtině.</p>
     </section>
 
