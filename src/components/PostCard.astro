@@ -31,7 +31,7 @@ const {
     {
       published && (
         <div class="date" transition:name={`post-published-${id}`}>
-          {Astro.currentLocale === "cs" ? "Vydáno" : "Published:"}
+          {Astro.currentLocale === "cs" ? "Vydáno" : "Published: "}
           <Date date={published} />
         </div>
       )
