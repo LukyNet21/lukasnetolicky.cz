@@ -1,4 +1,4 @@
-.about-content > .section + .section {
+.about-content>.section+.section {
   margin-top: var(--space-2xl);
 }
 
@@ -25,7 +25,7 @@
   background-color: var(--bg);
 }
 
-.skills-section .about-content > div + div {
+.skills-section .about-content>div+div {
   margin-top: var(--space-2xl);
 }
 
@@ -195,7 +195,7 @@ body.light .tech-icon-dark {
 
 .badges {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-gap: var(--space-md);
   justify-items: center;
 }

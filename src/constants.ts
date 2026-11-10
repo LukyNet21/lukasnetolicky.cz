@@ -78,6 +78,7 @@ export const socialLinks = [
 import CCNAINT_1 from "./assets/images/about/CCNAITN_1.png";
 import ITE from "./assets/images/about/ITE.png";
 import I2CS from "./assets/images/about/I2CS.png";
+import HTML_ESS from "./assets/images/about/HTML_ESS.png";
 
 
 export const certificates = [
@@ -95,5 +96,11 @@ export const certificates = [
     image: I2CS,
     href: "https://www.credly.com/badges/de0a64f0-8122-4b9a-8bc6-9f1f5a04d480",
     alt: "Introduction to Cybersecurity Credly badge",
+  },
+  {
+    image: HTML_ESS,
+    href: "https://www.credly.com/badges/c8ef5350-5ed2-4ebf-89a8-4c2ec7680ff4",
+    alt: "HTML Essentials",
   }
 ]
+
